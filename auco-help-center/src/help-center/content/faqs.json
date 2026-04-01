@@ -417,7 +417,7 @@
     "id": 70,
     "category": "Validación de identidad",
     "question": "¿Qué limitación tiene la herramienta cuando un usuario realiza su primera firma?",
-    "answer": "Si una persona es completamente nueva, no hay historial de ubicaciones, dispositivos ni rostro previo, limitando las señales comportamentales a email y teléfono."
+    "answer": "Si una persona es completamente nueva no hay historial de ubicaciones, dispositivos ni rostro previo, limitando las señales comportamentales a email y teléfono."
   },
   {
     "id": 71,
