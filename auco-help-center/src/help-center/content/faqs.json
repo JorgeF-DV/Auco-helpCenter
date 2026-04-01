@@ -1,0 +1,440 @@
+[
+  {
+    "id": 1,
+    "category": "Documentos",
+    "question": "Documento en estado firmado que no tiene firmas.",
+    "answer": "Si el documento tiene cifrado/protección, esto impide su procesamiento automático en Auco para garantizar la integridad de la firma electrónica. Por eso, recomendamos validar antes de cargar que el PDF no contenga cifrados, contraseñas o restricciones (Auco no los admite por seguridad técnica)."
+  },
+  {
+    "id": 2,
+    "category": "Firma de procesos",
+    "question": "No tienes documentos pendientes por firmar",
+    "answer": "Esto indica que actualmente no tienes documentos pendientes de firma."
+  },
+  {
+    "id": 3,
+    "category": "Recordatorios",
+    "question": "¿Cómo funcionan los recordatorios en WhatsApp?",
+    "answer": "Los recordatorios a través de WhatsApp funcionan durante las primeras 24 horas. Después de esto, empiezan a llegar al correo electrónico. En caso de no tener registrado un correo electrónico, no le llegarán notificaciones al usuario.\n\nEn caso de que los recordatorios no lleguen por ningún medio, puedes compartirle el siguiente enlace para que lo abra desde su WhatsApp. Es importante que lo abra desde el número al cual le enviaron a firmar el documento, pues solo desde este número lo puede firmar: https://wa.me/message/G5KJT5YQVZY4A1"
+  },
+  {
+    "id": 4,
+    "category": "Plantillas",
+    "question": "¿Puedo eliminar una plantilla?",
+    "answer": "Sí, puedes eliminar una plantilla siempre y cuando esta plantilla no haya sido usada anteriormente en un documento. Esta solicitud debes tramitarla a través de nuestro soporte. Escribe a: help@tech.auco.ai"
+  },
+  {
+    "id": 5,
+    "category": "Mis documentos",
+    "question": "¿Por qué no puedo visualizar documentos en la sección Mis documentos?",
+    "answer": "Primero debes verificar con el administrador de la cuenta de Auco si te dio permisos de visualización o si te incluyo en un grupo. De esta manera podrás visualizar los documentos."
+  },
+  {
+    "id": 6,
+    "category": "Validación de identidad",
+    "question": "¿Por qué se bloquea a un usuario?",
+    "answer": "Si el usuario ha intentado 3 veces validar su identidad a través de foto o vídeo y no ha sido posible, el sistema lo bloquea de forma preventiva. Para poder desbloquearlo tendrías que realizar el proceso de validación manual: https://www.youtube.com/watch?v=frb9dK7BILI&feature=youtu.be"
+  },
+  {
+    "id": 7,
+    "category": "Firma de documento",
+    "question": "Coloqué mal el número de cédula de un usuario. ¿Qué puedo hacer?",
+    "answer": "Debes obtener el código del documento e indicarnos el número de cédula correcto. Esta información debes enviarla a través de correo electrónico a: help@tech.auco.ai"
+  },
+  {
+    "id": 8,
+    "category": "Validación de identidad",
+    "question": "Después de desbloquear a un usuario, ¿el documento queda firmado?",
+    "answer": "Cuando alguien se bloquea y este es validado manualmente con la opción Validar, el documento quedará en estado firmado."
+  },
+  {
+    "id": 9,
+    "category": "Mis documentos",
+    "question": "¿Por qué no puedo ver un documento que tiene más de 3 meses de creado?",
+    "answer": "El sistema muestra por defecto los documentos creados en los últimos tres (3) meses. Por esta razón, la búsqueda solo arroja los documentos más recientes dentro de ese periodo.\n\nSi deseas visualizar documentos más antiguos, te recomendamos ajustar los filtros de búsqueda estableciendo una fecha \"desde\" anterior al rango actual. De esta manera, podrás ampliar el periodo de búsqueda y consultar todos los documentos creados dentro del intervalo que necesites."
+  },
+  {
+    "id": 10,
+    "category": "Firma de documento",
+    "question": "Me equivoqué diligenciando un dato, pero, el documento ya fue firmado.",
+    "answer": "Los procesos que ya han sido firmados por todas las partes no pueden ser anulados. Esto se debe a que, una vez firmado en su totalidad, el documento queda legalmente cerrado y asegurado, lo cual garantiza la integridad, trazabilidad y validez jurídica del acuerdo.\n\nModificar o eliminarlo después de firmado implicaría alterar un registro que ya fue validado por las partes involucradas. En este caso, la alternativa es cargar un nuevo contrato con la información corregida."
+  },
+  {
+    "id": 11,
+    "category": "Mis documentos",
+    "question": "¿Puedo reactivar un proceso en estado cancelado?",
+    "answer": "No se puede reactivar. En esta situación debes crear un nuevo proceso y hacer el envío del documento de nuevo a todos los participantes."
+  },
+  {
+    "id": 12,
+    "category": "Mis documentos",
+    "question": "¿Cómo puedo aprobar una solicitud que me hicieron para verificar la validez de un documento?",
+    "answer": "1. Ve a 'Mis documentos'\n2. Busca el documento que requieres o ingresa el código en el buscador para que sea más sencillo de encontrar\n3. Haz clic derecho al documento y selecciona la opción 'Habilitar acceso al público'."
+  },
+  {
+    "id": 13,
+    "category": "Mis documentos",
+    "question": "Documento en edición, no deja descargarlo.",
+    "answer": "Cuando un documento aparece en estado 'edición', es porque le diste clic derecho y seleccionaste 'Editar'. Para sacarlo de modo edición, debes dar clic derecho, seleccionar 'Finalizar edición' y listo."
+  },
+  {
+    "id": 14,
+    "category": "Mis documentos",
+    "question": "Necesito el reembolso de un documento enviado, debido a que el proceso se canceló.",
+    "answer": "Un documento en el momento del envío genera cobro, sin importar que después sea cancelado o rechazado. No es posible realizar el reembolso del crédito consumido."
+  },
+  {
+    "id": 15,
+    "category": "Validación de identidad",
+    "question": "¿Cuáles son los tipos de documentos aceptados por Auco y de que países?",
+    "answer": "Esto puedes consultarlo en: https://docs.auco.ai/api/reference/country-list"
+  },
+  {
+    "id": 16,
+    "category": "Validación de identidad",
+    "question": "¿Por qué se bloquea el proceso si la similitud es muy alta?",
+    "answer": "La similitud es solo uno de los parámetros que utilizamos dentro del proceso de validación. Sin embargo, aunque la coincidencia sea del 99.99%, si la foto del documento presenta hologramas, brillos, reflejos o cualquier característica que dificulte la lectura (tal como lo indica el mensaje de bloqueo), el sistema puede requerir una validación manual.\n\nEsto se hace para garantizar la seguridad y confiabilidad de la verificación."
+  },
+  {
+    "id": 17,
+    "category": "Firma de documento",
+    "question": "¿Pueden haber 2 firmantes con un mismo correo?",
+    "answer": "Para el proceso de firma electrónica, es necesario que cada firmante tenga un correo electrónico diferente. Esto se debe a que la plataforma identifica y valida a cada persona como un usuario único a través de su dirección de correo, lo que garantiza la trazabilidad y la validez legal del proceso.\n\nSi ambas personas van a firmar pero solo cuentan con un correo, sería necesario crear o utilizar otro correo alterno para que cada firmante pueda recibir su invitación de manera independiente."
+  },
+  {
+    "id": 18,
+    "category": "Mis documentos",
+    "question": "¿Si muevo un documento de una carpeta a otra el documento se duplica?",
+    "answer": "Al pegar un documento en otra carpeta este no queda duplicado, simplemente se mueve o copia según la acción ejecutada, por lo que no deberías visualizar dos archivos independientes."
+  },
+  {
+    "id": 19,
+    "category": "Organización",
+    "question": "¿Puedo cambiar la contraseña de los usuarios de mi organización?",
+    "answer": "Actualmente no contamos con la funcionalidad para habilitar permisos que permitan realizar cambios de contraseña a los usuarios desde el panel administrativo. Por el momento, este tipo de ajustes no está disponible dentro de la plataforma.\n\nSin embargo, es importante mencionar que como administrador sí cuentas con la posibilidad de agregar y eliminar usuarios, gestionar sus permisos dentro de la compañía, controlar las opciones de desarrollo disponibles y visualizar todos los procesos creados por la organización. Estas herramientas te permiten administrar de manera completa el acceso y la operación dentro de la plataforma."
+  },
+  {
+    "id": 20,
+    "category": "Reportes",
+    "question": "Requiero un informe/reportes de cantidad de documentos generados por los correos que tienen acceso a AUCO.",
+    "answer": "El informe solicitado puede generarse directamente desde la cuenta administradora. Solo debes ingresar al inicio de la plataforma y seleccionar la opción “Generar reporte” , ubicada en el panel principal."
+  },
+  {
+    "id": 21,
+    "category": "Organización",
+    "question": "¿Dónde puedo crear mi usuario para ambiente de pruebas?",
+    "answer": "Debes escribirle a tu comercial asignado y solicitarle la posibilidad de acceso y usuario a este ambiente."
+  },
+  {
+    "id": 22,
+    "category": "Organización",
+    "question": "¿Cómo puedo cambiar el propietario/administrador de Auco?",
+    "answer": "El nuevo propietario debe formar parte de la organización antes de que podamos efectuar el cambio. Para ello, el propietario actual debe invitarlo a unirse como colaborador. Es crucial que, antes de realizar la invitación, el usuario ya tenga una cuenta activa en AUCO. Luego nos escribes a help@tech.auco.ai solicitando el cambio."
+  },
+  {
+    "id": 23,
+    "category": "Mis documentos",
+    "question": "¿Cómo reactivar un proceso luego de que un firmante lo rechazó?",
+    "answer": "Puedes consultar el proceso en: https://youtu.be/i3gqt_N5P4ovU?si=cl4pW5P4AN9ii2vP"
+  },
+  {
+    "id": 24,
+    "category": "Firma de documento",
+    "question": "¿Cuántos ciudadanos utilizan plataformas masivas de firma electrónica para trámites personales?",
+    "answer": "Más de 20,000 ciudadanos ya utilizan plataformas masivas de firma electrónica para trámites personales."
+  },
+  {
+    "id": 25,
+    "category": "Organización",
+    "question": "¿Qué porcentaje de empresas usan mecanismos de firma electrónica y gestión documental?",
+    "answer": "1 de cada 6 empresas ya usa mecanismos de firma electrónica y gestión documental."
+  },
+  {
+    "id": 26,
+    "category": "Firma de procesos",
+    "question": "¿En qué trámites comunes se destaca el uso de la firma electrónica?",
+    "answer": "Se destaca el uso en gestión financiera, recursos humanos, salud, seguros y educación."
+  },
+  {
+    "id": 27,
+    "category": "Firma de documento",
+    "question": "¿Qué ley otorgó validez legal a la firma electrónica en Colombia?",
+    "answer": "La Ley 527 de 1999 otorgó validez legal hace décadas."
+  },
+  {
+    "id": 28,
+    "category": "Organización",
+    "question": "¿Cuál es el principal freno que identifican las empresas para la madurez total en la digitalización?",
+    "answer": "El 45% de las empresas identifica la cultura organizacional como el principal freno para la madurez total."
+  },
+  {
+    "id": 29,
+    "category": "Documentos",
+    "question": "¿Cuáles son los principales documentos que se firman con mayor frecuencia de forma electrónica?",
+    "answer": "Los principales son:\n- Contratos laborales\n- Pagarés y cartas de instrucciones\n- Contratos de arrendamiento\n- Entrega de poderes y autorizaciones\n- Firma de contratos en general."
+  },
+  {
+    "id": 30,
+    "category": "Organización",
+    "question": "¿Por qué las empresas siguen prefiriendo el papel en ciertos procesos?",
+    "answer": "Las empresas siguen prefiriendo el papel en procesos que son muy económicos, como tomar una asistencia, o en procesos muy riesgosos, donde prefieren ver a la persona presencialmente."
+  },
+  {
+    "id": 31,
+    "category": "Firma de procesos",
+    "question": "¿Cuál es un error de fraude involuntario común en las empresas?",
+    "answer": "Es común que varias personas tengan la firma del gerente y la usen para firmar documentos, lo que es totalmente indebido."
+  },
+  {
+    "id": 32,
+    "category": "Documentos",
+    "question": "¿Qué ocurre con el texto de 'dos copias' al firmar un documento digitalmente?",
+    "answer": "Al firmarlo digitalmente, el documento generado es el original, y pueden acceder a él a través de escanear un código QR, así que en estos casos, ese texto ya no se usaría."
+  },
+  {
+    "id": 33,
+    "category": "Firma de documento",
+    "question": "¿Cuándo se considera que un documento está mal firmado?",
+    "answer": "Un documento está mal firmado cuando no se firma con sus datos propios, es decir:\n- Si a una persona no le realizan validaciones de identidad\n- Le envían el documento a firmar a un correo que no es el propio\n- Un código OTP a un celular que no es el propio."
+  },
+  {
+    "id": 34,
+    "category": "Firma de procesos",
+    "question": "¿De quién es la responsabilidad si un documento tiene un error antes de que todos firmen?",
+    "answer": "La empresa debería cancelar el documento antes que todas las personas firmen, y la plataforma de firma debe permitir cancelar un documento antes que todos firmen."
+  },
+  {
+    "id": 35,
+    "category": "Firma de documento",
+    "question": "¿Qué es una firma digital?",
+    "answer": "La firma digital es un tipo específico de firma electrónica que utiliza criptografía asimétrica, es un certificado digital que emite una Entidad de Certificación acreditada."
+  },
+  {
+    "id": 36,
+    "category": "Validación de identidad",
+    "question": "¿Cuáles son algunos ejemplos de firma electrónica simple?",
+    "answer": "Por ejemplo:\n- Códigos OTP\n- Validación facial\n- Validación de documento de identidad\n- Validación de correo\n- Validación de número de celular."
+  },
+  {
+    "id": 37,
+    "category": "Reportes",
+    "question": "¿Qué sectores avanzaron más en el uso de la firma electrónica durante 2025?",
+    "answer": "Los sectores que más avanzaron fueron las empresas del sector financiero pequeñas, inmobiliario y constructor."
+  },
+  {
+    "id": 38,
+    "category": "Reportes",
+    "question": "¿Cuáles fueron los sectores más rezagados en el uso de la firma electrónica en 2025?",
+    "answer": "Los más rezagados son las empresas de telecomunicaciones, el sector público, las grandes entidades financieras y los corporativos que tienen gran fuerza laboral."
+  },
+  {
+    "id": 39,
+    "category": "Firma de procesos",
+    "question": "¿Qué factores de las plataformas básicas pueden generar errores en la firma electrónica?",
+    "answer": "Los factores son:\n- Firma a través de múltiples canales\n- No tener la posibilidad de hacer una firma secuencial\n- No poder cambiar los datos de los firmantes\n- No permitir tener aprobadores u observadores."
+  },
+  {
+    "id": 40,
+    "category": "Validación de identidad",
+    "question": "¿Cuáles son los intentos de fraude más comunes al firmar documentos?",
+    "answer": "Los intentos de fraude más comunes es usar fotos de otras personas, y documentos de identidad editados."
+  },
+  {
+    "id": 41,
+    "category": "Validación de identidad",
+    "question": "¿Cuáles son las verificaciones mínimas que un ciudadano debería hacer antes de firmar digitalmente?",
+    "answer": "Siempre deberían:\n- Tomar una foto a su rostro\n- Tomar una foto de su documento de identidad\n- Tener un segundo canal de validación."
+  },
+  {
+    "id": 42,
+    "category": "Firma de documento",
+    "question": "¿Cuál es el mayor error que cometen los colombianos al firmar documentos digitales?",
+    "answer": "Muchos no firman correctamente o no logran firmar por no seguir instrucciones, como:\n- No tomarse fotos con gafas o sombreros\n- No poner un código enviado a su correo."
+  },
+  {
+    "id": 43,
+    "category": "Reportes",
+    "question": "¿Cuántos accesos a internet móvil tuvo Colombia al cierre de 2025?",
+    "answer": "Colombia cerró 2025 con 49,1 millones de accesos a internet móvil."
+  },
+  {
+    "id": 44,
+    "category": "Firma de documento",
+    "question": "¿Qué porcentaje de documentos entre privados se pueden firmar a través de WhatsApp?",
+    "answer": "El 100% de los documentos entre privados puede ser firmado a través de WhatsApp."
+  },
+  {
+    "id": 45,
+    "category": "Documentos",
+    "question": "¿Qué documentos no pueden ser firmados electrónicamente por WhatsApp?",
+    "answer": "Los documentos que no pueden ser firmados electrónicamente son documentos públicos, como por ejemplo, unas escrituras de una casa, apartamento o lote."
+  },
+  {
+    "id": 46,
+    "category": "Firma de documento",
+    "question": "¿Cuáles son las tres características para que un documento firmado en WhatsApp tenga validez jurídica?",
+    "answer": "Se deben cumplir 3 características: integridad, disponibilidad y autenticidad."
+  },
+  {
+    "id": 47,
+    "category": "Organización",
+    "question": "¿Por qué WhatsApp ayuda a la inclusión de personas con bajas habilidades digitales?",
+    "answer": "Gran parte de la población con bajas habilidades digitales destacan el WhatsApp como la herramienta que mejor manejan por su facilidad de uso y gran adopción."
+  },
+  {
+    "id": 48,
+    "category": "Documentos",
+    "question": "¿Qué documentos se deben firmar típicamente para formalizar un crédito?",
+    "answer": "Para formalizar un crédito debe existir la firma de un pagaré y carta de instrucciones."
+  },
+  {
+    "id": 49,
+    "category": "Firma de procesos",
+    "question": "¿Qué precauciones se deben tener si una empresa pide datos por WhatsApp?",
+    "answer": "Es importante siempre:\n- Validar que sea un número corporativo\n- Validar la empresa en redes sociales\n- Preguntar el número de celular del que van a escribir\n- Solicitar los datos que van a requerir."
+  },
+  {
+    "id": 50,
+    "category": "Firma de procesos",
+    "question": "¿Qué información legal mínima deben recibir los usuarios antes de firmar por WhatsApp?",
+    "answer": "Siempre los usuarios deben recibir:\n- Un acuerdo de firma electrónica\n- Términos y condiciones de uso\n- Política de tratamiento de datos personales."
+  },
+  {
+    "id": 51,
+    "category": "Firma de documento",
+    "question": "¿Cuál es la diferencia entre una firma 100% por WhatsApp y una notificación en WhatsApp?",
+    "answer": "Hay que diferenciar muy bien la firma 100% a través de WhatsApp a la notificación de firma en WhatsApp que se saca de WhatsApp, esta segunda es una firma tradicional."
+  },
+  {
+    "id": 52,
+    "category": "Organización",
+    "question": "¿Qué beneficios ambientales trae la validación y firma por WhatsApp?",
+    "answer": "Ayudaría al medio ambiente, pues se deben producir menos papel, tinta, agua para la fabricación del papel."
+  },
+  {
+    "id": 53,
+    "category": "Firma de documento",
+    "question": "¿Cuánto cuesta firmar un documento adicional en Auco para personas independientes?",
+    "answer": "En caso de tener un nuevo documento para firmar, este puede ser firmado por solo 8.000 pesos."
+  },
+  {
+    "id": 54,
+    "category": "Validación de identidad",
+    "question": "¿Son seguros los procesos de validación digital en comparación con los presenciales?",
+    "answer": "Los procesos digitales, en su gran mayoría tienen procesos de validación de identidad más robustos que los presenciales."
+  },
+  {
+    "id": 55,
+    "category": "Reportes",
+    "question": "¿Cuántas validaciones de identidad procesó el Guardián de Identidades en sus primeras dos semanas?",
+    "answer": "En las primeras 2 semanas de operación, el Guardián de Identidades procesó 56,618 validaciones de identidad."
+  },
+  {
+    "id": 56,
+    "category": "Reportes",
+    "question": "¿Cuántas alertas de posible fraude detectó el sistema en sus primeras dos semanas?",
+    "answer": "El sistema detectó más de 4,100 alertas de posible fraude."
+  },
+  {
+    "id": 57,
+    "category": "Validación de identidad",
+    "question": "¿Cuál es el enfoque de diseño del Guardián de Identidades?",
+    "answer": "El Guardián de Identidades está diseñado con un enfoque de mínima fricción para el usuario legítimo y máxima detección para el suplantador."
+  },
+  {
+    "id": 58,
+    "category": "Validación de identidad",
+    "question": "¿El Guardián de Identidades bloquea automáticamente a los usuarios al detectar una alerta?",
+    "answer": "El sistema no bloquea automáticamente a nadie por una sola señal aislada."
+  },
+  {
+    "id": 59,
+    "category": "Validación de identidad",
+    "question": "¿Qué característica hace única a la solución de AUCO en el mercado colombiano?",
+    "answer": "Es la primera solución en Colombia que cruza en tiempo real y en paralelo 6 dimensiones de identidad en una sola evaluación."
+  },
+  {
+    "id": 60,
+    "category": "Validación de identidad",
+    "question": "¿Cuáles son las 6 dimensiones de identidad que cruza el sistema?",
+    "answer": "Las dimensiones son:\n- Reconocimiento facial\n- Referencias cruzadas de email\n- Referencias cruzadas de teléfono\n- Huella de dispositivo\n- Análisis de IP en tiempo real\n- Distancia geográfica."
+  },
+  {
+    "id": 61,
+    "category": "Validación de identidad",
+    "question": "¿De dónde provienen los 3 millones de rostros indexados por la plataforma?",
+    "answer": "Los rostros provienen de los procesos de firma electrónica realizados en la plataforma de AUCO."
+  },
+  {
+    "id": 62,
+    "category": "Validación de identidad",
+    "question": "¿Cuál es la diferencia entre Liveness pasivo y activo?",
+    "answer": "Liveness pasivo analiza la selfie del firmante sin requerir acciones adicionales, mientras que Liveness activo solicita al firmante realizar gestos específicos."
+  },
+  {
+    "id": 63,
+    "category": "Validación de identidad",
+    "question": "¿Qué vectores de ataque detecta la capa de Liveness?",
+    "answer": "Esta capa detecta los 4 vectores de ataque más comunes:\n- Fotos de foto\n- Videos pregrabados\n- Deepfakes en tiempo real\n- Máscaras 3D."
+  },
+  {
+    "id": 64,
+    "category": "Validación de identidad",
+    "question": "¿Cuáles son las tres acciones que puede retornar el Guardián de Identidades?",
+    "answer": "El sistema retorna una de tres acciones:\n- CONTINUE\n- ALERT\n- REPORT."
+  },
+  {
+    "id": 65,
+    "category": "Firma de procesos",
+    "question": "¿Cómo puede una empresa desbloquear a un usuario reportado por error?",
+    "answer": "La empresa puede desbloquear en cualquier momento a través de la función de desbloqueo, que permite quitar de lista negra por tipo: persona, email o teléfono."
+  },
+  {
+    "id": 66,
+    "category": "Firma de procesos",
+    "question": "¿Pueden las empresas ejecutar bloqueos directos en la plataforma de AUCO?",
+    "answer": "Las empresas reportan los casos a AUCO internamente, no pueden cargar bloqueos directamente a la plataforma."
+  },
+  {
+    "id": 67,
+    "category": "Validación de identidad",
+    "question": "¿Cómo maneja el sistema las firmas desde dispositivos compartidos por familiares?",
+    "answer": "El sistema lo detecta pero analiza si las demás señales son consistentes para cada persona; si lo son, no genera alerta."
+  },
+  {
+    "id": 68,
+    "category": "Organización",
+    "question": "¿Por cuánto tiempo almacena AUCO la información de los usuarios?",
+    "answer": "La información se almacena por 10 años."
+  },
+  {
+    "id": 69,
+    "category": "Reportes",
+    "question": "¿Cuál es el sector más afectado por la suplantación de identidad actualmente?",
+    "answer": "Créditos es el principal sector."
+  },
+  {
+    "id": 70,
+    "category": "Validación de identidad",
+    "question": "¿Qué limitación tiene la herramienta cuando un usuario realiza su primera firma?",
+    "answer": "Si una persona es completamente nueva, no hay historial de ubicaciones, dispositivos ni rostro previo, limitando las señales comportamentales a email y teléfono."
+  },
+  {
+    "id": 71,
+    "category": "Reportes",
+    "question": "¿Cuántos casos de documentos con rostro editado digitalmente se detectaron en las primeras semanas?",
+    "answer": "Se detectaron 53 casos de documento con rostro editado digitalmente."
+  },
+  {
+    "id": 72,
+    "category": "Reportes",
+    "question": "¿Cuántas personas legítimas fueron rescatadas de falsos rechazos en las primeras dos semanas?",
+    "answer": "El sistema logró rescatar a más de 4,200 personas legítimas que versiones anteriores del modelo hubieran rechazado incorrectamente."
+  },
+  {
+    "id": 73,
+    "category": "Reportes",
+    "question": "¿Cuál fue la penetración de internet en Colombia al cierre de 2025?",
+    "answer": "Al cierre de 2025, la penetración de internet en Colombia alcanzó niveles cercanos al 77%."
+  }
+]

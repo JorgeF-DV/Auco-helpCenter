@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "category": "Perfil",
+    "title": "Cómo gestionar tu perfil en Auco",
+    "description": "En este vídeo aprenderás a detalle como funciona la sección de perfil en Auco y que puedes hacer en cada apartado.",
+    "youtubeId": "Z2Lkhs_hH24",
+    "duration": "4 min"
+  },
+  {
+    "id": 2,
+    "category": "Firma de documentos",
+    "title": "Cómo cargar documentos para firmar en Auco",
+    "description": "Descubre cómo cargar documentos para firmar en la plataforma Auco. En este video te mostramos los pasos para crear, configurar y gestionar documentos de forma segura y eficiente.",
+    "youtubeId": "Fe2lGDlomRk",
+    "duration": "5 min"
+  },
+  {
+    "id": 3,
+    "category": "Firma de documentos",
+    "title": "Cómo solicitar adjuntos y firmar documentos en Auco",
+    "description": "En este vídeo aprenderas a usar solicitar adjuntos y firmar documentos.",
+    "youtubeId": "5x9i5FfBAtE",
+    "duration": "3 min"
+  },
+  {
+    "id": 4,
+    "category": "Plantillas",
+    "title": "Cómo funciona el constructor de documentos en Auco",
+    "description": "En este espacio aprenderás a volver dinámicos tus documentos.",
+    "youtubeId": "VveD3WSG-Dk",
+    "duration": "5 min"
+  },
+  {
+    "id": 5,
+    "category": "Mis documentos",
+    "title": "Cómo reactivar un proceso en estado rechazado",
+    "description": "Es este vídeo aprenderás a cómo reactivar un proceso en estado rechazado cuando una de las partes lo ha rechazado por error o por no estar de acuerdo.",
+    "youtubeId": "i3gqt_N5ovU",
+    "duration": "1 min"
+  },
+  {
+    "id": 6,
+    "category": "Mis documentos",
+    "title": "Cómo descargar el certificado de trazabilidad de un documento Auco",
+    "description": "En este vídeo aprenderás a cómo descargar el certificado de trazabilidad de un documento. ",
+    "youtubeId": "dSK4BxZH_Xk",
+    "duration": "1 min"
+  },
+  {
+    "id": 7,
+    "category": "Firma de documentos",
+    "title": "Cómo firmar un documento a través de correo electrónico",
+    "description": "¿Te enviaron un documento por Auco y no sabés como firmarlo? Vamos a revisarlo.",
+    "youtubeId": "Tom5WG9biQg",
+    "duration": "3 min"
+  },
+  {
+    "id": 8,
+    "category": "Validación de identidad",
+    "title": "Cómo funciona la validación de identidad manual",
+    "description": "En este vídeo aprenderás a validar manualmente a un usuario cuando su proceso esté bloqueado.",
+    "youtubeId": "neRuTyNDeco",
+    "duration": "3 min"
+  },
+  {
+    "id": 9,
+    "category": "Firma de documentos",
+    "title": "Cómo firmar un documento por WhatsApp en Auco",
+    "description": "Aprenderás a cómo firmar un documento por WhatsApp en Auco.",
+    "youtubeId": "kdOiVJCn3zg",
+    "duration": "2 min"
+  }
+]
