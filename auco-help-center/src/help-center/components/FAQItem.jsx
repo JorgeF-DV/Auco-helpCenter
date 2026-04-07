@@ -11,8 +11,8 @@
 //   - La respuesta se anima con una transición de altura
 // ─────────────────────────────────────────────────────────────
 
-import { useState } from "react";
-import { colors, typography, radius, shadows, styles } from "../styles/theme";
+import { useId, useState } from "react";
+import { colors, typography, styles } from "../styles/theme";
 
 // Ícono SVG de chevron — reemplaza emojis por iconografía limpia
 function ChevronIcon({ isOpen }) {
@@ -39,6 +39,7 @@ function ChevronIcon({ isOpen }) {
 
 export default function FAQItem({ question, answer, category }) {
   const [isOpen, setIsOpen] = useState(false);
+  const panelId = useId();
 
   return (
     <div
@@ -53,6 +54,8 @@ export default function FAQItem({ question, answer, category }) {
       {/* ── Header del acordeón ── */}
       <button
         onClick={() => setIsOpen(!isOpen)}
+        aria-expanded={isOpen}
+        aria-controls={panelId}
         style={{
           width: "100%",
           display: "flex",
@@ -99,6 +102,7 @@ export default function FAQItem({ question, answer, category }) {
       {/* ── Cuerpo desplegable ── */}
       {isOpen && (
         <div
+          id={panelId}
           style={{
             padding: "0 22px 20px 22px",
             borderTop: `1px solid ${colors.border}`,

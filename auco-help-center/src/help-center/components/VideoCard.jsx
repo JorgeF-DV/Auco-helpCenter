@@ -13,7 +13,7 @@
 // ─────────────────────────────────────────────────────────────
 
 import { useState } from "react";
-import { colors, typography, radius, shadows, styles } from "../styles/theme";
+import { colors, typography, shadows, styles } from "../styles/theme";
 
 // Ícono de play en SVG — no emoji
 function PlayIcon() {
@@ -52,9 +52,8 @@ function ClockIcon() {
 export default function VideoCard({ title, description, youtubeId, category, duration, onClick }) {
   const [hovered, setHovered] = useState(false);
 
-  // YouTube genera automáticamente miniaturas en distintas resoluciones.
-  // maxresdefault es la de mayor calidad. Si no existe, cae a hqdefault.
-  const thumbnailUrl = `https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg`;
+  // hqdefault es más estable entre videos; si falla intentamos mqdefault.
+  const thumbnailUrl = `https://img.youtube.com/vi/${youtubeId}/hqdefault.jpg`;
 
   return (
     <article
@@ -86,9 +85,9 @@ export default function VideoCard({ title, description, youtubeId, category, dur
             transition: "transform 0.3s ease",
             transform: hovered ? "scale(1.03)" : "scale(1)",
           }}
-          // Si la miniatura de maxres no existe, usa la de hq
+          // Fallback de miniatura para videos con recursos incompletos.
           onError={(e) => {
-            e.target.src = `https://img.youtube.com/vi/${youtubeId}/hqdefault.jpg`;
+            e.target.src = `https://img.youtube.com/vi/${youtubeId}/mqdefault.jpg`;
           }}
         />
 

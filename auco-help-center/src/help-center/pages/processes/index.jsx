@@ -7,7 +7,7 @@
 
 import { useState } from "react";
 import Layout from "../../components/Layout";
-import { colors, typography, radius, shadows, styles } from "../../styles/theme";
+import { colors, typography, shadows, styles } from "../../styles/theme";
 import processes from "../../content/processes.json";
 
 // ── Card de proceso ───────────────────────────────────────────
@@ -120,7 +120,18 @@ function ProcessCard({ process, onClick }) {
 // ── Componente principal ──────────────────────────────────────
 export default function ProcessesPage({ setPage, setSelectedProcess }) {
   return (
-    <Layout currentPage="processes" onNavigate={setPage}>
+    <Layout onNavigate={setPage}>
+      <button
+        onClick={() => setPage("home")}
+        style={backButtonStyle}
+      >
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+          <line x1="19" y1="12" x2="5" y2="12" />
+          <polyline points="12 19 5 12 12 5" />
+        </svg>
+        Volver a inicio
+      </button>
+
       {/* Cabecera */}
       <div
         style={{
@@ -175,3 +186,17 @@ export default function ProcessesPage({ setPage, setSelectedProcess }) {
     </Layout>
   );
 }
+
+const backButtonStyle = {
+  background: "none",
+  border: "none",
+  color: colors.primary,
+  cursor: "pointer",
+  fontSize: typography.sm,
+  fontWeight: typography.semibold,
+  fontFamily: typography.fontFamily,
+  padding: "0 0 20px",
+  display: "flex",
+  alignItems: "center",
+  gap: "6px",
+};

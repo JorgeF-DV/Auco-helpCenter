@@ -4,12 +4,17 @@ import FAQsPage       from "./pages/faqs/index";
 import VideosPage     from "./pages/videos/index";
 import ProcessesPage  from "./pages/processes/index";
 import ProcessDetail  from "./pages/processes/[slug]";
+import { validateHelpCenterContent } from "./content/validateContent";
+
+validateHelpCenterContent();
 
 export default function AucoHelpCenter() {
   const [page, setPage] = useState("home");
   const [selectedProcess, setSelectedProcess] = useState(null);
   const [selectedVideoCategory, setSelectedVideoCategory] = useState(null);
   const [selectedVideoId, setSelectedVideoId] = useState(null);
+  const [selectedFaqSearch, setSelectedFaqSearch] = useState("");
+  const [selectedVideoSearch, setSelectedVideoSearch] = useState("");
 
   const navigate = useCallback((newPage) => {
     setPage(newPage);
@@ -19,6 +24,11 @@ export default function AucoHelpCenter() {
   const clearVideoSelection = useCallback(() => {
     setSelectedVideoCategory(null);
     setSelectedVideoId(null);
+    setSelectedVideoSearch("");
+  }, []);
+
+  const clearFaqSelection = useCallback(() => {
+    setSelectedFaqSearch("");
   }, []);
 
   switch (page) {
@@ -29,11 +39,19 @@ export default function AucoHelpCenter() {
           setSelectedProcess={setSelectedProcess}
           setSelectedVideoCategory={setSelectedVideoCategory}
           setSelectedVideoId={setSelectedVideoId}
+          setSelectedFaqSearch={setSelectedFaqSearch}
+          setSelectedVideoSearch={setSelectedVideoSearch}
         />
       );
 
     case "faqs":
-      return <FAQsPage setPage={navigate} />;
+      return (
+        <FAQsPage
+          setPage={navigate}
+          initialSearch={selectedFaqSearch}
+          clearSelection={clearFaqSelection}
+        />
+      );
 
     case "videos":
       return (
@@ -41,6 +59,7 @@ export default function AucoHelpCenter() {
           setPage={navigate}
           selectedVideoCategory={selectedVideoCategory}
           selectedVideoId={selectedVideoId}
+          initialSearch={selectedVideoSearch}
           clearSelection={clearVideoSelection}
         />
       );
@@ -58,7 +77,6 @@ export default function AucoHelpCenter() {
         <ProcessDetail
           slug={selectedProcess}
           setPage={navigate}
-          setSelectedProcess={setSelectedProcess}
         />
       );
 
@@ -69,6 +87,8 @@ export default function AucoHelpCenter() {
           setSelectedProcess={setSelectedProcess}
           setSelectedVideoCategory={setSelectedVideoCategory}
           setSelectedVideoId={setSelectedVideoId}
+          setSelectedFaqSearch={setSelectedFaqSearch}
+          setSelectedVideoSearch={setSelectedVideoSearch}
         />
       );
   }

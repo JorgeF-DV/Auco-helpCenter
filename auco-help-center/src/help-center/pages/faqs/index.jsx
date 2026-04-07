@@ -7,12 +7,13 @@
 //   - Acordeones individuales con FAQItem
 // ─────────────────────────────────────────────────────────────
 
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Layout from "../../components/Layout";
 import FAQItem from "../../components/FAQItem";
 import SearchBar from "../../components/SearchBar";
 import { colors, typography, radius, styles } from "../../styles/theme";
 import faqs from "../../content/faqs.json";
+import { normalizeText } from "../../utils/search";
 
 // ── Cabecera de sección reutilizable ─────────────────────────
 function PageHeader({ title, subtitle }) {
@@ -44,26 +45,45 @@ function PageHeader({ title, subtitle }) {
   );
 }
 
-export default function FAQsPage({ setPage }) {
-  const [search, setSearch] = useState("");
+export default function FAQsPage({ setPage, initialSearch, clearSelection }) {
+  const [search, setSearch] = useState(initialSearch || "");
   const [activeCategory, setActiveCategory] = useState("Todos");
+  const normalizedSearch = useMemo(() => normalizeText(search), [search]);
+
+  useEffect(() => {
+    return () => {
+      if (clearSelection) clearSelection();
+    };
+  }, [clearSelection]);
 
   // Obtiene categorías únicas del JSON + "Todos" al inicio
   const categories = ["Todos", ...new Set(faqs.map((f) => f.category))];
 
   // Aplica filtro de categoría y búsqueda simultáneamente
-  const filtered = faqs.filter((f) => {
-    const matchesCategory =
-      activeCategory === "Todos" || f.category === activeCategory;
-    const matchesSearch =
-      !search ||
-      f.question.toLowerCase().includes(search.toLowerCase()) ||
-      f.answer.toLowerCase().includes(search.toLowerCase());
-    return matchesCategory && matchesSearch;
-  });
+  const filtered = useMemo(() => {
+    return faqs.filter((f) => {
+      const matchesCategory = activeCategory === "Todos" || f.category === activeCategory;
+      const matchesSearch =
+        !normalizedSearch ||
+        normalizeText(f.question).includes(normalizedSearch) ||
+        normalizeText(f.answer).includes(normalizedSearch);
+      return matchesCategory && matchesSearch;
+    });
+  }, [activeCategory, normalizedSearch]);
 
   return (
-    <Layout currentPage="faqs" onNavigate={setPage}>
+    <Layout onNavigate={setPage}>
+      <button
+        onClick={() => setPage("home")}
+        style={backButtonStyle}
+      >
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+          <line x1="19" y1="12" x2="5" y2="12" />
+          <polyline points="12 19 5 12 12 5" />
+        </svg>
+        Volver a inicio
+      </button>
+
       <PageHeader
         title="Preguntas frecuentes"
         subtitle="Respuestas a los problemas y dudas más comunes de la plataforma."
@@ -154,3 +174,17 @@ export default function FAQsPage({ setPage }) {
     </Layout>
   );
 }
+
+const backButtonStyle = {
+  background: "none",
+  border: "none",
+  color: colors.primary,
+  cursor: "pointer",
+  fontSize: typography.sm,
+  fontWeight: typography.semibold,
+  fontFamily: typography.fontFamily,
+  padding: "0 0 20px",
+  display: "flex",
+  alignItems: "center",
+  gap: "6px",
+};

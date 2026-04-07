@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import Layout from "../components/Layout";
 import SearchBar from "../components/SearchBar";
 import { colors, typography, radius, shadows, styles } from "../styles/theme";
 import faqs from "../content/faqs.json";
 import videos from "../content/videos.json";
 import processes from "../content/processes.json";
+import { normalizeText } from "../utils/search";
 
 function SectionCard({ title, subtitle, count, onClick, accentColor, icon }) {
   const [hovered, setHovered] = useState(false);
@@ -63,10 +64,22 @@ function SectionCard({ title, subtitle, count, onClick, accentColor, icon }) {
   );
 }
 
-function SearchResult({ type, label, description }) {
+function SearchResult({ type, label, description, onClick }) {
   const isVideo = type === "Video";
   return (
-    <div style={{ ...styles.card, padding: "16px 20px", display: "flex", gap: "14px", alignItems: "flex-start" }}>
+    <button
+      onClick={onClick}
+      style={{
+        ...styles.card,
+        padding: "16px 20px",
+        display: "flex",
+        gap: "14px",
+        alignItems: "flex-start",
+        width: "100%",
+        textAlign: "left",
+        cursor: "pointer",
+      }}
+    >
       <span style={{ ...styles.badge, background: isVideo ? colors.successBg : colors.primaryBg, color: isVideo ? "#15803D" : colors.primary, whiteSpace: "nowrap", marginTop: "2px" }}>
         {type}
       </span>
@@ -78,7 +91,7 @@ function SearchResult({ type, label, description }) {
           {description.substring(0, 110)}...
         </p>
       </div>
-    </div>
+    </button>
   );
 }
 
@@ -108,27 +121,64 @@ const processIcon = (color) => (
   </svg>
 );
 
-export default function HomePage({ setPage, setSelectedProcess, setSelectedVideoCategory, setSelectedVideoId }) {
+export default function HomePage({
+  setPage,
+  setSelectedProcess,
+  setSelectedVideoCategory,
+  setSelectedVideoId,
+  setSelectedFaqSearch,
+  setSelectedVideoSearch,
+}) {
   const [searchTerm, setSearchTerm] = useState("");
+  const normalizedSearchTerm = useMemo(() => normalizeText(searchTerm), [searchTerm]);
 
-  const searchResults =
-    searchTerm.length > 2
-      ? [
-          ...faqs
-            .filter((f) => f.question.toLowerCase().includes(searchTerm.toLowerCase()) || f.answer.toLowerCase().includes(searchTerm.toLowerCase()))
-            .map((f) => ({ type: "FAQ", label: f.question, description: f.answer })),
-          ...videos
-            .filter((v) => v.title.toLowerCase().includes(searchTerm.toLowerCase()) || v.description.toLowerCase().includes(searchTerm.toLowerCase()))
-            .map((v) => ({ type: "Video", label: v.title, description: v.description })),
-        ]
-      : [];
+  function handleSearchResultClick(hit) {
+    if (hit.type === "Video") {
+      setSelectedVideoCategory(hit.category);
+      setSelectedVideoId(hit.id);
+      setSelectedVideoSearch(hit.label);
+      setPage("videos");
+      return;
+    }
+
+    if (hit.type === "FAQ") {
+      setSelectedFaqSearch(hit.label);
+      setPage("faqs");
+    }
+  }
+
+  const searchResults = useMemo(() => {
+    if (normalizedSearchTerm.length <= 2) return [];
+
+    const faqHits = faqs
+      .filter((f) => {
+        const haystack = `${f.question} ${f.answer}`;
+        return normalizeText(haystack).includes(normalizedSearchTerm);
+      })
+      .map((f) => ({ type: "FAQ", label: f.question, description: f.answer, id: f.id }));
+
+    const videoHits = videos
+      .filter((v) => {
+        const haystack = `${v.title} ${v.description} ${v.category}`;
+        return normalizeText(haystack).includes(normalizedSearchTerm);
+      })
+      .map((v) => ({ type: "Video", label: v.title, description: v.description, id: v.id, category: v.category }));
+
+    const dedup = new Map();
+    [...faqHits, ...videoHits].forEach((hit) => {
+      const key = `${hit.type}-${hit.id}`;
+      if (!dedup.has(key)) dedup.set(key, hit);
+    });
+
+    return Array.from(dedup.values());
+  }, [normalizedSearchTerm]);
 
   const topFaqs = faqs.slice(0, 2);
   const topVideos = videos.slice(0, 2);
   const topProcesses = processes.slice(0, 2);
 
   return (
-    <Layout currentPage="home" onNavigate={setPage}>
+    <Layout onNavigate={setPage}>
       <section style={{ background: `linear-gradient(140deg, ${colors.dark} 0%, #1a3a6b 100%)`, borderRadius: radius.lg, padding: "52px 48px", marginBottom: "36px", position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", top: -80, right: -80, width: 280, height: 280, borderRadius: "50%", border: "1px solid rgba(255,255,255,0.06)", pointerEvents: "none" }} />
         <div style={{ position: "absolute", top: -40, right: -40, width: 160, height: 160, borderRadius: "50%", border: "1px solid rgba(255,255,255,0.06)", pointerEvents: "none" }} />
@@ -143,7 +193,7 @@ export default function HomePage({ setPage, setSelectedProcess, setSelectedVideo
         <SearchBar value={searchTerm} onChange={setSearchTerm} placeholder="Busca por pregunta, tema o palabra clave..." />
       </section>
 
-      {searchTerm.length > 2 ? (
+      {normalizedSearchTerm.length > 2 ? (
         <section style={{ marginBottom: "36px" }}>
           <h2 style={{ color: colors.text, fontSize: typography.lg, fontWeight: typography.semibold, margin: "0 0 14px", fontFamily: typography.fontFamily }}>Resultados de búsqueda</h2>
           {searchResults.length === 0 ? (
@@ -152,8 +202,12 @@ export default function HomePage({ setPage, setSelectedProcess, setSelectedVideo
             </div>
           ) : (
             <div style={{ display: "grid", gap: "12px" }}>
-              {searchResults.map((hit, index) => (
-                <SearchResult key={`${hit.type}-${index}`} {...hit} />
+              {searchResults.map((hit) => (
+                <SearchResult
+                  key={`${hit.type}-${hit.id}`}
+                  {...hit}
+                  onClick={() => handleSearchResultClick(hit)}
+                />
               ))}
             </div>
           )}

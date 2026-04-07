@@ -1,16 +1,148 @@
-# React + Vite
+# Auco Help Center
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Frontend SPA del Centro de Ayuda de Auco, construida con React + Vite.
 
-Currently, two official plugins are available:
+## Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React 19
+- Vite 7
+- ESLint 9
 
-## React Compiler
+## Arquitectura
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Tipo de app: SPA sin backend.
+- Navegacion: enrutamiento interno por estado (sin React Router).
+- Datos: contenido local en JSON.
+- Estilos: estilos inline con tokens centralizados en `theme.js`.
 
-## Expanding the ESLint configuration
+Punto de entrada:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- `src/main.jsx` monta `src/help-center/App.jsx`.
+
+Modulo principal:
+
+- `src/help-center/App.jsx` orquesta estado compartido y cambio de vistas.
+
+## Estructura de carpetas
+
+```text
+src/
+	main.jsx
+	help-center/
+		App.jsx
+		components/
+		content/
+			faqs.json
+			videos.json
+			processes.json
+			validateContent.js
+		pages/
+		styles/
+			theme.js
+```
+
+## Contratos de datos
+
+FAQs (`faqs.json`):
+
+- `id` (number)
+- `category` (string)
+- `question` (string)
+- `answer` (string)
+
+Videos (`videos.json`):
+
+- `id` (number)
+- `category` (string)
+- `title` (string)
+- `description` (string)
+- `youtubeId` (string)
+- `duration` (string)
+
+Procesos (`processes.json`):
+
+- `slug` (string)
+- `category` (string)
+- `number` (number)
+- `title` (string)
+- `description` (string)
+- `tip` (string)
+- `steps` (array)
+
+Step de proceso (canonico):
+
+- `step_number` (number)
+- `action` (string)
+- `image` (string, opcional)
+- `imageAlt` (string, opcional)
+
+## Validacion de contenido
+
+Al iniciar la app se valida la estructura de `faqs.json`, `videos.json` y `processes.json`.
+
+- Archivo: `src/help-center/content/validateContent.js`
+- Invocacion: `src/help-center/App.jsx`
+
+Si el contrato es invalido, la app falla con un error explicito para evitar inconsistencias silenciosas.
+
+## Scripts
+
+```bash
+npm install
+npm run dev
+npm run lint
+npm run check:content
+npm run test
+npm run test:coverage
+npm run check
+npm run build
+npm run preview
+```
+
+`npm run check` ejecuta el pipeline recomendado para PRs:
+
+1. Lint
+2. Validacion de contratos de contenido JSON
+3. Build de produccion
+4. Tests automatizados
+
+## CI
+
+El repositorio incluye workflow en GitHub Actions:
+
+- `.github/workflows/ci.yml`
+
+Se ejecuta en push y pull request, y corre `npm run check`.
+
+Adicionalmente ejecuta cobertura con `npm run test:coverage` y falla si no cumple los umbrales configurados en `vite.config.js`.
+
+## Desarrollo local
+
+Desde la carpeta del proyecto:
+
+```bash
+cd C:/Users/Auco/auco-helpcenter/auco-help-center
+npm install
+npm run dev
+```
+
+URL local de Vite:
+
+- `http://localhost:5173/`
+
+## Troubleshooting rapido
+
+Error `Could not read package.json`:
+
+- El comando se ejecuto fuera de la carpeta `auco-help-center`.
+
+Error `vite no se reconoce`:
+
+- Faltan dependencias; ejecuta `npm install` en la carpeta del proyecto.
+
+## Limitaciones conocidas
+
+- No hay deep-linking ni historial real por URL.
+- No hay CMS; el contenido se edita manualmente en JSON.
+- El chat de soporte es un mock local (sin API real).
+

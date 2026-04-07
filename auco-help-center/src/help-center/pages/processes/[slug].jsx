@@ -15,17 +15,17 @@
 
 import Layout from "../../components/Layout";
 import ProcessStep from "../../components/ProcessStep";
-import { colors, typography, radius, shadows, styles } from "../../styles/theme";
+import { colors, typography, radius, styles } from "../../styles/theme";
 import processes from "../../content/processes.json";
 
-export default function ProcessDetailPage({ slug, setPage, setSelectedProcess }) {
+export default function ProcessDetailPage({ slug, setPage }) {
   // Busca el proceso en el JSON usando el slug como clave
   const process = processes.find((p) => p.slug === slug);
 
   // Si el slug no existe, muestra un estado de error con navegación de regreso
   if (!process) {
     return (
-      <Layout currentPage="processes" onNavigate={setPage}>
+      <Layout onNavigate={setPage}>
         <div
           style={{
             ...styles.card,
@@ -49,7 +49,7 @@ export default function ProcessDetailPage({ slug, setPage, setSelectedProcess })
   }
 
   return (
-    <Layout currentPage="processes" onNavigate={setPage}>
+    <Layout onNavigate={setPage}>
       {/* ── Botón de regreso ── */}
       <button
         onClick={() => setPage("processes")}
@@ -188,11 +188,11 @@ export default function ProcessDetailPage({ slug, setPage, setSelectedProcess })
 
         {process.steps.map((step, index) => (
           <ProcessStep
-            key={step.number}
-            number={step.number}
-            title={step.title}
-            description={step.description}
-            tip={step.tip}
+            key={step.step_number}
+            number={step.step_number}
+            action={step.action}
+            image={step.image}
+            imageAlt={step.imageAlt}
             isLast={index === process.steps.length - 1}
           />
         ))}

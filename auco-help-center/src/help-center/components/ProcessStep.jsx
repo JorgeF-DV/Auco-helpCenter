@@ -13,7 +13,8 @@
 
 import { colors, typography, radius } from "../styles/theme";
 
-export default function ProcessStep({ number, title, description, tip, isLast }) {
+export default function ProcessStep({ number, action, image, imageAlt, isLast }) {
+
   return (
     <div
       style={{
@@ -74,50 +75,35 @@ export default function ProcessStep({ number, title, description, tip, isLast })
           flex: 1,
         }}
       >
-        {/* Título del paso */}
-        <h4
-          style={{
-            color: colors.text,
-            fontSize: typography.md,
-            fontWeight: typography.semibold,
-            margin: "6px 0 8px",
-            fontFamily: typography.fontFamily,
-            lineHeight: 1.3,
-          }}
-        >
-          {title}
-        </h4>
-
-        {/* Descripción del paso */}
+        {/* Acción del paso */}
         <p
           style={{
             color: colors.textMuted,
             fontSize: typography.base,
             lineHeight: 1.75,
-            margin: 0,
+            margin: "6px 0 0",
             fontFamily: typography.fontFamily,
           }}
         >
-          {description}
+          {action}
         </p>
 
-        {/* Tip opcional — solo se renderiza si tip tiene contenido */}
-        {tip && (
+        {image && (
           <div
             style={{
-              marginTop: "12px",
-              padding: "11px 14px",
-              background: colors.warnBg,
-              borderLeft: `3px solid ${colors.warnBorder}`,
-              borderRadius: `0 ${radius.md} ${radius.md} 0`,
-              fontSize: typography.sm,
-              color: colors.warnText,
-              lineHeight: 1.6,
-              fontFamily: typography.fontFamily,
+              marginTop: "14px",
+              border: `1px solid ${colors.border}`,
+              borderRadius: radius.md,
+              overflow: "hidden",
+              background: colors.surface,
             }}
           >
-            <strong style={{ fontWeight: typography.semibold }}>Nota: </strong>
-            {tip}
+            <img
+              src={image}
+              alt={imageAlt || `Paso ${number}`}
+              style={{ width: "100%", height: "auto", display: "block" }}
+              loading="lazy"
+            />
           </div>
         )}
       </div>
