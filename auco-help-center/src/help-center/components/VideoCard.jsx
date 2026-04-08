@@ -73,15 +73,19 @@ export default function VideoCard({ title, description, youtubeId, category, dur
       }}
     >
       {/* ── Miniatura con overlay de play ── */}
-      <div style={{ position: "relative", aspectRatio: "16 / 9", overflow: "hidden" }}>
+      <div
+        style={{
+          ...styles.mediaFrame,
+          position: "relative",
+          aspectRatio: "16 / 9",
+          margin: "10px 10px 0",
+        }}
+      >
         <img
           src={thumbnailUrl}
           alt={`Miniatura: ${title}`}
           style={{
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            display: "block",
+            ...styles.mediaImageCover,
             transition: "transform 0.3s ease",
             transform: hovered ? "scale(1.03)" : "scale(1)",
           }}

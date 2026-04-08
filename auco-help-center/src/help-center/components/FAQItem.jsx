@@ -13,6 +13,7 @@
 
 import { useId, useState } from "react";
 import { colors, typography, styles } from "../styles/theme";
+import LinkifiedText from "./LinkifiedText";
 
 // Ícono SVG de chevron — reemplaza emojis por iconografía limpia
 function ChevronIcon({ isOpen }) {
@@ -111,9 +112,18 @@ export default function FAQItem({ question, answer, category }) {
             fontSize: typography.base,
             lineHeight: 1.75,
             fontFamily: typography.fontFamily,
+            whiteSpace: "pre-wrap",
           }}
         >
-          {answer}
+          <LinkifiedText
+            text={answer}
+            linkStyle={{
+              color: colors.primary,
+              textDecoration: "underline",
+              textUnderlineOffset: "2px",
+              fontWeight: typography.medium,
+            }}
+          />
         </div>
       )}
     </div>

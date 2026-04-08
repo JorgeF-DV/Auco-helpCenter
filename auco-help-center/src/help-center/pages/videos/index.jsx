@@ -256,15 +256,16 @@ export default function VideosPage({ setPage, selectedVideoCategory, selectedVid
 }
 
 const backButtonStyle = {
-  background: "none",
+  background: "transparent",
   border: "none",
-  color: colors.primary,
+  color: colors.dark,
   cursor: "pointer",
   fontSize: typography.sm,
   fontWeight: typography.semibold,
   fontFamily: typography.fontFamily,
-  padding: "0 0 20px",
-  display: "flex",
+  padding: 0,
+  marginBottom: "20px",
+  display: "inline-flex",
   alignItems: "center",
-  gap: "6px",
+  gap: "8px",
 };

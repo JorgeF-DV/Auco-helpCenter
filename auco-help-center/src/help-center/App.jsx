@@ -75,8 +75,10 @@ export default function AucoHelpCenter() {
     case "process-detail":
       return (
         <ProcessDetail
+          key={selectedProcess || "process-detail"}
           slug={selectedProcess}
           setPage={navigate}
+          setSelectedProcess={setSelectedProcess}
         />
       );
 
