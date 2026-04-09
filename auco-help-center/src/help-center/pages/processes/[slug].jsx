@@ -78,7 +78,7 @@ export default function ProcessDetailPage({ slug, setPage, setSelectedProcess })
       {/* ── Cabecera del proceso ── */}
       <div
         style={{
-          background: `linear-gradient(140deg, ${colors.dark} 0%, #1a3a6b 100%)`,
+          background: `linear-gradient(140deg, ${colors.dark} 0%, ${colors.primary} 100%)`,
           borderRadius: radius.lg,
           padding: "32px 36px",
           marginBottom: "28px",

@@ -9,7 +9,7 @@ export default function Layout({ children, onNavigate }) {
     <div style={{ minHeight: "100vh", background: colors.surface, fontFamily: typography.fontFamily, display: "flex", flexDirection: "column" }}>
       <header style={{
         height: 60,
-        background: "linear-gradient(90deg, #002855 0%, #00346f 55%, #0b3f7a 100%)",
+        background: `linear-gradient(90deg, ${colors.dark} 0%, ${colors.primary} 100%)`,
         display: "flex",
         alignItems: "center",
         padding: "0 24px",
@@ -21,7 +21,7 @@ export default function Layout({ children, onNavigate }) {
         overflow: "hidden",
       }}>
         <div style={{ position: "absolute", top: -34, right: "22%", width: 160, height: 160, borderRadius: "50%", background: "radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%)", pointerEvents: "none" }} />
-        <div style={{ position: "absolute", top: -50, left: -18, width: 150, height: 150, borderRadius: "50%", background: "radial-gradient(circle, rgba(71, 147, 255, 0.26) 0%, rgba(71, 147, 255, 0) 72%)", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", top: -50, left: -18, width: 150, height: 150, borderRadius: "50%", background: "radial-gradient(circle, rgba(3, 74, 166, 0.26) 0%, rgba(3, 74, 166, 0) 72%)", pointerEvents: "none" }} />
 
         <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
           <img

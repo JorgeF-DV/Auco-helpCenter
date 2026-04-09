@@ -112,8 +112,28 @@ function validateProcesses(processes) {
   assertSequential(numbers, "Proceso number");
 }
 
-export function validateHelpCenterContentData({ faqs, videos, processes }) {
+function validateDocuments(documents) {
+  assert(Array.isArray(documents), "documents.json debe exportar un arreglo");
+
+  const ids = [];
+
+  documents.forEach((document, index) => {
+    assert(typeof document === "object" && document !== null, `Documento #${index + 1} debe ser objeto`);
+    assert(Number.isInteger(document.id), `Documento #${index + 1} debe tener id entero`);
+    assert(isNonEmptyString(document.category), `Documento #${index + 1} debe tener category no vacio`);
+    assert(isNonEmptyString(document.title), `Documento #${index + 1} debe tener title no vacio`);
+    assert(isNonEmptyString(document.description), `Documento #${index + 1} debe tener description no vacio`);
+    assert(isNonEmptyString(document.lastUpdated), `Documento #${index + 1} debe tener lastUpdated no vacio`);
+    assert(isNonEmptyString(document.size), `Documento #${index + 1} debe tener size no vacio`);
+    ids.push(document.id);
+  });
+
+  assertUnique(ids, "Documento id");
+}
+
+export function validateHelpCenterContentData({ faqs, videos, processes, documents }) {
   validateFaqs(faqs);
   validateVideos(videos);
   validateProcesses(processes);
+  validateDocuments(documents);
 }

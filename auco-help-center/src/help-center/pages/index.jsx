@@ -5,6 +5,7 @@ import { colors, typography, radius, shadows, styles } from "../styles/theme";
 import faqs from "../content/faqs.json";
 import videos from "../content/videos.json";
 import processes from "../content/processes.json";
+import documents from "../content/documents.json";
 import { normalizeText } from "../utils/search";
 
 function SectionCard({ title, subtitle, count, onClick, accentColor, icon }) {
@@ -121,6 +122,15 @@ const processIcon = (color) => (
   </svg>
 );
 
+const documentIcon = (color) => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+    <polyline points="14 2 14 8 20 8" />
+    <line x1="12" y1="13" x2="12" y2="17" />
+    <line x1="9" y1="15" x2="15" y2="15" />
+  </svg>
+);
+
 export default function HomePage({
   setPage,
   setSelectedProcess,
@@ -179,7 +189,7 @@ export default function HomePage({
 
   return (
     <Layout onNavigate={setPage}>
-      <section style={{ background: `linear-gradient(140deg, ${colors.dark} 0%, #1a3a6b 100%)`, borderRadius: radius.lg, padding: "52px 48px", marginBottom: "36px", position: "relative", overflow: "hidden" }}>
+      <section style={{ background: `linear-gradient(140deg, ${colors.dark} 0%, ${colors.primary} 100%)`, borderRadius: radius.lg, padding: "52px 48px", marginBottom: "36px", position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", top: -80, right: -80, width: 280, height: 280, borderRadius: "50%", border: "1px solid rgba(255,255,255,0.06)", pointerEvents: "none" }} />
         <div style={{ position: "absolute", top: -40, right: -40, width: 160, height: 160, borderRadius: "50%", border: "1px solid rgba(255,255,255,0.06)", pointerEvents: "none" }} />
 
@@ -222,6 +232,7 @@ export default function HomePage({
             <SectionCard title="Preguntas frecuentes" subtitle="Respuestas rápidas" count={`${faqs.length} artículos`} onClick={() => setPage("faqs")} accentColor={colors.primary} icon={faqIcon} />
             <SectionCard title="Videos tutoriales" subtitle="Aprende paso a paso" count={`${videos.length} videos`} onClick={() => setPage("videos")} accentColor={colors.primary} icon={videoIcon} />
             <SectionCard title="Procesos" subtitle="Guías detalladas" count={`${processes.length} guías`} onClick={() => setPage("processes")} accentColor={colors.primary} icon={processIcon} />
+            <SectionCard title="Documentos legales" subtitle="Términos y políticas" count={`${documents.length} documentos`} onClick={() => setPage("documents")} accentColor="#ec4899" icon={documentIcon} />
           </div>
 
           <h2 style={{ color: colors.text, fontSize: typography.lg, fontWeight: typography.semibold, margin: "0 0 16px", fontFamily: typography.fontFamily }}>

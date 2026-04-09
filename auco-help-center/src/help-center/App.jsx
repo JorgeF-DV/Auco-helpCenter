@@ -4,6 +4,7 @@ import FAQsPage       from "./pages/faqs/index";
 import VideosPage     from "./pages/videos/index";
 import ProcessesPage  from "./pages/processes/index";
 import ProcessDetail  from "./pages/processes/[slug]";
+import DocumentsPage  from "./pages/documents/index";
 import { validateHelpCenterContent } from "./content/validateContent";
 
 validateHelpCenterContent();
@@ -79,6 +80,13 @@ export default function AucoHelpCenter() {
           slug={selectedProcess}
           setPage={navigate}
           setSelectedProcess={setSelectedProcess}
+        />
+      );
+
+    case "documents":
+      return (
+        <DocumentsPage
+          setPage={navigate}
         />
       );
 

@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "category": "Términos y Condiciones",
+    "title": "Términos y Condiciones de Uso",
+    "description": "Términos y condiciones generales que rigen el uso de la plataforma Auco.",
+    "lastUpdated": "2024-01-15",
+    "size": "45 KB"
+  },
+  {
+    "id": 2,
+    "category": "Política de Privacidad",
+    "title": "Política de Privacidad y Protección de Datos",
+    "description": "Información sobre cómo recopilamos, usamos y protegemos tus datos personales.",
+    "lastUpdated": "2024-01-15",
+    "size": "52 KB"
+  },
+  {
+    "id": 3,
+    "category": "Términos y Condiciones",
+    "title": "Acuerdo de Nivel de Servicio (SLA)",
+    "description": "Compromisos de disponibilidad y calidad del servicio de Auco.",
+    "lastUpdated": "2023-12-01",
+    "size": "38 KB"
+  },
+  {
+    "id": 4,
+    "category": "Política de Privacidad",
+    "title": "Política de Cookies",
+    "description": "Información sobre el uso de cookies y tecnologías de seguimiento en Auco.",
+    "lastUpdated": "2024-02-01",
+    "size": "28 KB"
+  },
+  {
+    "id": 5,
+    "category": "Seguridad",
+    "title": "Política de Seguridad y Cumplimiento",
+    "description": "Estándares de seguridad, cifrado y cumplimiento normativo que implementa Auco.",
+    "lastUpdated": "2024-01-20",
+    "size": "61 KB"
+  }
+]
