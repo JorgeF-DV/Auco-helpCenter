@@ -125,6 +125,8 @@ function validateDocuments(documents) {
     assert(isNonEmptyString(document.description), `Documento #${index + 1} debe tener description no vacio`);
     assert(isNonEmptyString(document.lastUpdated), `Documento #${index + 1} debe tener lastUpdated no vacio`);
     assert(isNonEmptyString(document.size), `Documento #${index + 1} debe tener size no vacio`);
+    assert(isNonEmptyString(document.url), `Documento #${index + 1} debe tener url no vacio`);
+    assert(document.url.startsWith("/"), `Documento #${index + 1} url debe ser ruta absoluta desde /public`);
     ids.push(document.id);
   });
 

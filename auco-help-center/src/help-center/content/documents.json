@@ -1,42 +1,101 @@
 [
   {
     "id": 1,
-    "category": "Términos y Condiciones",
-    "title": "Términos y Condiciones de Uso",
-    "description": "Términos y condiciones generales que rigen el uso de la plataforma Auco.",
-    "lastUpdated": "2024-01-15",
-    "size": "45 KB"
+    "category": "Comparativos",
+    "title": "Auco vs DocuSign",
+    "description": "Documento comparativo entre Auco y DocuSign sobre capacidades funcionales y enfoque de servicio.",
+    "lastUpdated": "2026-04-09",
+    "size": "348 KB",
+    "url": "/Documentos Legales/Auco vs Docusign.pdf"
   },
   {
     "id": 2,
-    "category": "Política de Privacidad",
-    "title": "Política de Privacidad y Protección de Datos",
-    "description": "Información sobre cómo recopilamos, usamos y protegemos tus datos personales.",
-    "lastUpdated": "2024-01-15",
-    "size": "52 KB"
+    "category": "Cumplimiento",
+    "title": "Fuentes de Cumplimiento de Auco",
+    "description": "Resumen de marcos, normas y referencias de cumplimiento utilizadas por Auco.",
+    "lastUpdated": "2026-04-09",
+    "size": "14 KB",
+    "url": "/Documentos Legales/Auco_Fuentes_Cumplimiento.pdf"
   },
   {
     "id": 3,
-    "category": "Términos y Condiciones",
-    "title": "Acuerdo de Nivel de Servicio (SLA)",
-    "description": "Compromisos de disponibilidad y calidad del servicio de Auco.",
-    "lastUpdated": "2023-12-01",
-    "size": "38 KB"
+    "category": "Seguridad",
+    "title": "Autenticidad, Integridad, Disponibilidad y No Repudio",
+    "description": "Lineamientos de seguridad de Auco enfocados en autenticidad, integridad, disponibilidad y no repudio.",
+    "lastUpdated": "2026-04-09",
+    "size": "331 KB",
+    "url": "/Documentos Legales/DS - AUTENTICIDAD, INTEGRIDAD, DISPONIBILIDAD Y NO REPUDIO - AUCO (1).pdf"
   },
   {
     "id": 4,
-    "category": "Política de Privacidad",
-    "title": "Política de Cookies",
-    "description": "Información sobre el uso de cookies y tecnologías de seguimiento en Auco.",
-    "lastUpdated": "2024-02-01",
-    "size": "28 KB"
+    "category": "Marco Legal",
+    "title": "Firma Electrónica y Digital",
+    "description": "Explicación de diferencias, alcance y uso de firma electrónica y firma digital en contextos legales.",
+    "lastUpdated": "2026-04-09",
+    "size": "254 KB",
+    "url": "/Documentos Legales/Firma electrónica y Digital.pdf"
   },
   {
     "id": 5,
+    "category": "Certificaciones",
+    "title": "GSE ONAC",
+    "description": "Documento relacionado con certificación y evaluación técnica bajo estándares ONAC.",
+    "lastUpdated": "2026-04-09",
+    "size": "531 KB",
+    "url": "/Documentos Legales/GSE ONAC.pdf"
+  },
+  {
+    "id": 6,
     "category": "Seguridad",
-    "title": "Política de Seguridad y Cumplimiento",
-    "description": "Estándares de seguridad, cifrado y cumplimiento normativo que implementa Auco.",
-    "lastUpdated": "2024-01-20",
-    "size": "61 KB"
+    "title": "Política de Seguridad de la Información",
+    "description": "Política institucional de seguridad de la información con controles, responsabilidades y lineamientos.",
+    "lastUpdated": "2026-04-09",
+    "size": "328 KB",
+    "url": "/Documentos Legales/Politica de seguridad de la información.docx.pdf"
+  },
+  {
+    "id": 7,
+    "category": "Marco Legal",
+    "title": "Validez Legal de la Firma Electrónica en Colombia",
+    "description": "Análisis del marco jurídico colombiano aplicable a la validez legal de la firma electrónica.",
+    "lastUpdated": "2026-04-09",
+    "size": "1.54 MB",
+    "url": "/Documentos Legales/Validez Legal Firma Electrónica Colombia.pdf"
+  },
+  {
+    "id": 8,
+    "category": "Prensa",
+    "title": "Auco Prensa",
+    "description": "Material institucional de prensa de Auco para contexto de marca, mensajes clave y posicionamiento público.",
+    "lastUpdated": "2026-04-09",
+    "size": "364 KB",
+    "url": "/Documentos Legales/AUCO Prensa.pdf"
+  },
+  {
+    "id": 9,
+    "category": "Prensa",
+    "title": "Comunicado de Prensa Auco - Diciembre 2025",
+    "description": "Comunicado oficial de Auco con novedades y anuncios corporativos publicados en diciembre de 2025.",
+    "lastUpdated": "2026-04-09",
+    "size": "350 KB",
+    "url": "/Documentos Legales/Comunicado de prensa AUCO - Diciembre 2025.pdf"
+  },
+  {
+    "id": 10,
+    "category": "Seguridad",
+    "title": "Guardián de Identidades",
+    "description": "Documento de control y protección de identidades, enfocado en prevención de suplantación y validación segura.",
+    "lastUpdated": "2026-04-09",
+    "size": "171 KB",
+    "url": "/Documentos Legales/guardian de identidades 1 .pdf"
+  },
+  {
+    "id": 11,
+    "category": "Prensa",
+    "title": "Preguntas Frecuentes de Prensa - Diciembre 2025",
+    "description": "Compendio de preguntas y respuestas para prensa sobre temas estratégicos de Auco en diciembre de 2025.",
+    "lastUpdated": "2026-04-09",
+    "size": "284 KB",
+    "url": "/Documentos Legales/Preguntas AUCO   Tema de prensa diciembre 2025.pdf"
   }
 ]

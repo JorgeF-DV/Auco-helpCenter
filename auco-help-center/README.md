@@ -35,6 +35,7 @@ src/
 			faqs.json
 			videos.json
 			processes.json
+			documents.json
 			validateContent.js
 		pages/
 		styles/
@@ -76,14 +77,26 @@ Step de proceso (canonico):
 - `image` (string, opcional)
 - `imageAlt` (string, opcional)
 
+Documentos legales (`documents.json`):
+
+- `id` (number)
+- `category` (string)
+- `title` (string)
+- `description` (string)
+- `lastUpdated` (string)
+- `size` (string)
+- `url` (string)
+
 ## Validacion de contenido
 
-Al iniciar la app se valida la estructura de `faqs.json`, `videos.json` y `processes.json`.
+Al iniciar la app se valida la estructura de `faqs.json`, `videos.json`, `processes.json` y `documents.json`.
 
 - Archivo: `src/help-center/content/validateContent.js`
 - Invocacion: `src/help-center/App.jsx`
 
 Si el contrato es invalido, la app falla con un error explicito para evitar inconsistencias silenciosas.
+
+La búsqueda del home indexa FAQs, videos, procesos y documentos legales.
 
 ## Scripts
 

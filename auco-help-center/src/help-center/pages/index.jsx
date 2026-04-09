@@ -66,7 +66,14 @@ function SectionCard({ title, subtitle, count, onClick, accentColor, icon }) {
 }
 
 function SearchResult({ type, label, description, onClick }) {
-  const isVideo = type === "Video";
+  const badgeStylesByType = {
+    Video: { background: colors.successBg, color: "#15803D" },
+    FAQ: { background: colors.primaryBg, color: colors.primary },
+    Proceso: { background: colors.warnBg, color: colors.warnText },
+    Documento: { background: colors.primaryBg, color: colors.primary },
+  };
+  const badgeStyle = badgeStylesByType[type] || badgeStylesByType.FAQ;
+
   return (
     <button
       onClick={onClick}
@@ -81,7 +88,7 @@ function SearchResult({ type, label, description, onClick }) {
         cursor: "pointer",
       }}
     >
-      <span style={{ ...styles.badge, background: isVideo ? colors.successBg : colors.primaryBg, color: isVideo ? "#15803D" : colors.primary, whiteSpace: "nowrap", marginTop: "2px" }}>
+      <span style={{ ...styles.badge, ...badgeStyle, whiteSpace: "nowrap", marginTop: "2px" }}>
         {type}
       </span>
       <div>
@@ -126,8 +133,8 @@ const documentIcon = (color) => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
     <polyline points="14 2 14 8 20 8" />
-    <line x1="12" y1="13" x2="12" y2="17" />
-    <line x1="9" y1="15" x2="15" y2="15" />
+    <line x1="8" y1="13" x2="16" y2="13" />
+    <line x1="8" y1="17" x2="16" y2="17" />
   </svg>
 );
 
@@ -154,6 +161,17 @@ export default function HomePage({
     if (hit.type === "FAQ") {
       setSelectedFaqSearch(hit.label);
       setPage("faqs");
+      return;
+    }
+
+    if (hit.type === "Proceso") {
+      setSelectedProcess(hit.slug);
+      setPage("process-detail");
+      return;
+    }
+
+    if (hit.type === "Documento") {
+      window.open(hit.url, "_blank", "noopener,noreferrer");
     }
   }
 
@@ -174,8 +192,23 @@ export default function HomePage({
       })
       .map((v) => ({ type: "Video", label: v.title, description: v.description, id: v.id, category: v.category }));
 
+    const processHits = processes
+      .filter((p) => {
+        const stepActions = p.steps.map((step) => step.action).join(" ");
+        const haystack = `${p.title} ${p.description} ${p.category} ${p.tip} ${stepActions}`;
+        return normalizeText(haystack).includes(normalizedSearchTerm);
+      })
+      .map((p) => ({ type: "Proceso", label: p.title, description: p.description, id: p.number, slug: p.slug }));
+
+    const documentHits = documents
+      .filter((d) => {
+        const haystack = `${d.title} ${d.description} ${d.category}`;
+        return normalizeText(haystack).includes(normalizedSearchTerm);
+      })
+      .map((d) => ({ type: "Documento", label: d.title, description: d.description, id: d.id, url: d.url }));
+
     const dedup = new Map();
-    [...faqHits, ...videoHits].forEach((hit) => {
+    [...faqHits, ...videoHits, ...processHits, ...documentHits].forEach((hit) => {
       const key = `${hit.type}-${hit.id}`;
       if (!dedup.has(key)) dedup.set(key, hit);
     });
@@ -232,7 +265,7 @@ export default function HomePage({
             <SectionCard title="Preguntas frecuentes" subtitle="Respuestas rápidas" count={`${faqs.length} artículos`} onClick={() => setPage("faqs")} accentColor={colors.primary} icon={faqIcon} />
             <SectionCard title="Videos tutoriales" subtitle="Aprende paso a paso" count={`${videos.length} videos`} onClick={() => setPage("videos")} accentColor={colors.primary} icon={videoIcon} />
             <SectionCard title="Procesos" subtitle="Guías detalladas" count={`${processes.length} guías`} onClick={() => setPage("processes")} accentColor={colors.primary} icon={processIcon} />
-            <SectionCard title="Documentos legales" subtitle="Términos y políticas" count={`${documents.length} documentos`} onClick={() => setPage("documents")} accentColor="#ec4899" icon={documentIcon} />
+            <SectionCard title="Documentos legales" subtitle="Términos y políticas" count={`${documents.length} documentos`} onClick={() => setPage("documents")} accentColor={colors.primary} icon={documentIcon} />
           </div>
 
           <h2 style={{ color: colors.text, fontSize: typography.lg, fontWeight: typography.semibold, margin: "0 0 16px", fontFamily: typography.fontFamily }}>

@@ -16,13 +16,9 @@ export default function Layout({ children, onNavigate }) {
         justifyContent: "space-between",
         position: "relative",
         zIndex: 200,
-        boxShadow: "0 10px 28px rgba(0, 20, 45, 0.26), 0 1px 0 rgba(255,255,255,0.08)",
-        borderBottom: "1px solid rgba(255,255,255,0.16)",
+        borderBottom: "none",
         overflow: "hidden",
       }}>
-        <div style={{ position: "absolute", top: -34, right: "22%", width: 160, height: 160, borderRadius: "50%", background: "radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%)", pointerEvents: "none" }} />
-        <div style={{ position: "absolute", top: -50, left: -18, width: 150, height: 150, borderRadius: "50%", background: "radial-gradient(circle, rgba(3, 74, 166, 0.26) 0%, rgba(3, 74, 166, 0) 72%)", pointerEvents: "none" }} />
-
         <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
           <img
             src="/auco_logo.png"

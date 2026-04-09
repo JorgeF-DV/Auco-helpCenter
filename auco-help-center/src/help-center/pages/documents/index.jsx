@@ -10,8 +10,17 @@
 import { useEffect, useMemo, useState } from "react";
 import Layout from "../../components/Layout";
 import LegalDocumentCard from "../../components/LegalDocumentCard";
-import { colors, typography, radius, styles } from "../../styles/theme";
+import { colors, typography, radius } from "../../styles/theme";
 import documents from "../../content/documents.json";
+
+const CATEGORY_ORDER = [
+  "Marco Legal",
+  "Cumplimiento",
+  "Seguridad",
+  "Certificaciones",
+  "Comparativos",
+  "Prensa",
+];
 
 // ── Cabecera de sección ─────────────────────────────────────
 function PageHeader({ title, subtitle }) {
@@ -71,13 +80,31 @@ export default function DocumentsPage({ setPage }) {
     window.scrollTo({ top: 0, behavior: "auto" });
   }, []);
 
-  // Obtiene categorías únicas + "Todos"
-  const categories = ["Todos", ...new Set(documents.map((d) => d.category))];
+  // Obtiene categorías únicas + "Todos" con orden curado
+  const categories = useMemo(() => {
+    const uniqueCategories = [...new Set(documents.map((d) => d.category))];
+    const ordered = uniqueCategories.sort((a, b) => {
+      const indexA = CATEGORY_ORDER.indexOf(a);
+      const indexB = CATEGORY_ORDER.indexOf(b);
 
-  // Filtra documentos por categoría
+      if (indexA === -1 && indexB === -1) {
+        return a.localeCompare(b, "es", { sensitivity: "base" });
+      }
+      if (indexA === -1) return 1;
+      if (indexB === -1) return -1;
+      return indexA - indexB;
+    });
+
+    return ["Todos", ...ordered];
+  }, []);
+
+  // Filtra documentos por categoría y ordena por título
   const filtered = useMemo(() => {
-    if (activeCategory === "Todos") return documents;
-    return documents.filter((d) => d.category === activeCategory);
+    const items = activeCategory === "Todos"
+      ? [...documents]
+      : documents.filter((d) => d.category === activeCategory);
+
+    return items.sort((a, b) => a.title.localeCompare(b.title, "es", { sensitivity: "base" }));
   }, [activeCategory]);
 
   return (
@@ -149,9 +176,15 @@ export default function DocumentsPage({ setPage }) {
             <LegalDocumentCard
               key={doc.id}
               document={doc}
-              onClick={() => {
-                // TODO: Aquí irá la lógica para ver el documento completo
-                console.log("Documento seleccionado:", doc.id);
+              onView={() => {
+                window.open(doc.url, "_blank", "noopener,noreferrer");
+              }}
+              onDownload={() => {
+                const link = document.createElement("a");
+                link.href = doc.url;
+                link.download = "";
+                link.rel = "noopener noreferrer";
+                link.click();
               }}
             />
           ))}
@@ -162,7 +195,7 @@ export default function DocumentsPage({ setPage }) {
             padding: "40px 20px",
             textAlign: "center",
             borderRadius: radius.lg,
-            background: colors.bg,
+            background: colors.surface,
             border: `1.5px dashed ${colors.border}`,
           }}
         >
