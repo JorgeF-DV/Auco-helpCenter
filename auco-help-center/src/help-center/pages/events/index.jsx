@@ -56,20 +56,26 @@ const backButtonStyle = {
   alignItems: "center",
   gap: "8px",
   paddingRight: "12px",
-  color: colors.primary,
-  fontSize: typography.sm,
-  fontWeight: typography.semibold,
-  background: "none",
-  border: "none",
-  cursor: "pointer",
-  fontFamily: typography.fontFamily,
+  paddingLeft: "12px",
+  paddingTop: "8px",
+  paddingBottom: "8px",
   marginBottom: "20px",
+  background: "transparent",
+  border: "none",
+  borderRadius: "6px",
+  cursor: "pointer",
+  fontSize: typography.sm,
+  fontWeight: typography.medium,
+  color: colors.textMuted,
+  fontFamily: typography.fontFamily,
+  transition: "color 0.15s ease, background-color 0.15s ease",
 };
 
 function BackArrow() {
   return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <polyline points="15 18 9 12 15 6" />
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+      <line x1="19" y1="12" x2="5" y2="12" />
+      <polyline points="12 19 5 12 12 5" />
     </svg>
   );
 }
@@ -161,16 +167,14 @@ export default function EventsPage({ setPage }) {
     return filtered.sort((a, b) => new Date(a.date) - new Date(b.date));
   }, [selectedCategory]);
 
-  const handleRegister = (registrationUrl) => {
-    window.open(registrationUrl, "_blank", "noopener,noreferrer");
-  };
+  const handleRegister = () => {};
 
   return (
     <Layout>
       <div style={{ maxWidth: "900px", margin: "0 auto", padding: "40px 20px" }}>
         <button onClick={() => setPage("home")} style={backButtonStyle} aria-label="Volver al inicio">
           <BackArrow />
-          Volver
+          Volver a inicio
         </button>
 
         <PageHeader
@@ -199,7 +203,7 @@ export default function EventsPage({ setPage }) {
                 duration={event.duration}
                 instructor={event.instructor}
                 capacity={event.capacity}
-                onRegister={() => handleRegister(event.registrationUrl)}
+                onRegister={handleRegister}
               />
             ))
           ) : (

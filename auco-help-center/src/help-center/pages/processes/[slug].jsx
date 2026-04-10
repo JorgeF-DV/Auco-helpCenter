@@ -58,8 +58,7 @@ export default function ProcessDetailPage({ slug, setPage, setSelectedProcess })
       <button
         onClick={() => setPage("processes")}
         style={{
-          ...processNavLinkButtonStyle,
-          marginBottom: "20px",
+          ...backButtonStyle,
         }}
       >
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -282,15 +281,23 @@ export default function ProcessDetailPage({ slug, setPage, setSelectedProcess })
 }
 
 const backButtonStyle = {
-  background: colors.primary,
+  display: "flex",
+  alignItems: "center",
+  gap: "8px",
+  paddingRight: "12px",
+  paddingLeft: "12px",
+  paddingTop: "8px",
+  paddingBottom: "8px",
+  marginBottom: "20px",
+  background: "transparent",
   border: "none",
-  color: colors.white,
+  borderRadius: "6px",
   cursor: "pointer",
   fontSize: typography.sm,
-  fontWeight: typography.semibold,
+  fontWeight: typography.medium,
+  color: colors.textMuted,
   fontFamily: typography.fontFamily,
-  padding: "10px 20px",
-  borderRadius: radius.md,
+  transition: "color 0.15s ease, background-color 0.15s ease",
 };
 
 const processNavLinkButtonStyle = {
