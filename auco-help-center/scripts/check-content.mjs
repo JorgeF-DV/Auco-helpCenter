@@ -9,14 +9,15 @@ async function readJson(relativePath) {
 }
 
 async function main() {
-  const [faqs, videos, processes, documents] = await Promise.all([
+  const [faqs, videos, processes, documents, events] = await Promise.all([
     readJson("src/help-center/content/faqs.json"),
     readJson("src/help-center/content/videos.json"),
     readJson("src/help-center/content/processes.json"),
     readJson("src/help-center/content/documents.json"),
+    readJson("src/help-center/content/events.json"),
   ]);
 
-  validateHelpCenterContentData({ faqs, videos, processes, documents });
+  validateHelpCenterContentData({ faqs, videos, processes, documents, events });
   console.log("[HelpCenterContent] OK");
 }
 

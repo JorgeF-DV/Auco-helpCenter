@@ -6,6 +6,7 @@ import faqs from "../content/faqs.json";
 import videos from "../content/videos.json";
 import processes from "../content/processes.json";
 import documents from "../content/documents.json";
+import events from "../content/events.json";
 import { normalizeText } from "../utils/search";
 
 function SectionCard({ title, subtitle, count, onClick, accentColor, icon }) {
@@ -71,6 +72,7 @@ function SearchResult({ type, label, description, onClick }) {
     FAQ: { background: colors.primaryBg, color: colors.primary },
     Proceso: { background: colors.warnBg, color: colors.warnText },
     Documento: { background: colors.primaryBg, color: colors.primary },
+    Evento: { background: colors.primaryBg, color: colors.primary },
   };
   const badgeStyle = badgeStylesByType[type] || badgeStylesByType.FAQ;
 
@@ -138,6 +140,15 @@ const documentIcon = (color) => (
   </svg>
 );
 
+const eventIcon = (color) => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+    <line x1="16" y1="2" x2="16" y2="6" />
+    <line x1="8" y1="2" x2="8" y2="6" />
+    <line x1="3" y1="10" x2="21" y2="10" />
+  </svg>
+);
+
 export default function HomePage({
   setPage,
   setSelectedProcess,
@@ -172,6 +183,11 @@ export default function HomePage({
 
     if (hit.type === "Documento") {
       window.open(hit.url, "_blank", "noopener,noreferrer");
+      return;
+    }
+
+    if (hit.type === "Evento") {
+      window.open(hit.registrationUrl, "_blank", "noopener,noreferrer");
     }
   }
 
@@ -207,8 +223,15 @@ export default function HomePage({
       })
       .map((d) => ({ type: "Documento", label: d.title, description: d.description, id: d.id, url: d.url }));
 
+    const eventHits = events
+      .filter((e) => {
+        const haystack = `${e.title} ${e.description} ${e.category}`;
+        return normalizeText(haystack).includes(normalizedSearchTerm);
+      })
+      .map((e) => ({ type: "Evento", label: e.title, description: e.description, id: e.id, registrationUrl: e.registrationUrl }));
+
     const dedup = new Map();
-    [...faqHits, ...videoHits, ...processHits, ...documentHits].forEach((hit) => {
+    [...faqHits, ...videoHits, ...processHits, ...documentHits, ...eventHits].forEach((hit) => {
       const key = `${hit.type}-${hit.id}`;
       if (!dedup.has(key)) dedup.set(key, hit);
     });
@@ -266,6 +289,7 @@ export default function HomePage({
             <SectionCard title="Videos tutoriales" subtitle="Aprende paso a paso" count={`${videos.length} videos`} onClick={() => setPage("videos")} accentColor={colors.primary} icon={videoIcon} />
             <SectionCard title="Procesos" subtitle="Guías detalladas" count={`${processes.length} guías`} onClick={() => setPage("processes")} accentColor={colors.primary} icon={processIcon} />
             <SectionCard title="Documentos legales" subtitle="Términos y políticas" count={`${documents.length} documentos`} onClick={() => setPage("documents")} accentColor={colors.primary} icon={documentIcon} />
+            <SectionCard title="Eventos" subtitle="Webinars y talleres" count={`${events.length} eventos`} onClick={() => setPage("events")} accentColor={colors.primary} icon={eventIcon} />
           </div>
 
           <h2 style={{ color: colors.text, fontSize: typography.lg, fontWeight: typography.semibold, margin: "0 0 16px", fontFamily: typography.fontFamily }}>

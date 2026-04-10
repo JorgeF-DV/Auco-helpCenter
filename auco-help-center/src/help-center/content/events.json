@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "category": "Webinar",
+    "title": "Introducción a la firma digital en Auco",
+    "description": "Webinar introductorio sobre cómo funciona el proceso de firma digital en Auco. Aprenderás los conceptos basicos y ventajas de usar Auco para tus documentos.",
+    "date": "2026-04-15",
+    "time": "14:00",
+    "duration": "60 min",
+    "registrationUrl": "https://webinars.auco.com/intro-firma-digital",
+    "instructor": "Carolina Hernández",
+    "capacity": 500
+  },
+  {
+    "id": 2,
+    "category": "Taller",
+    "title": "Automatización de procesos de firma con Auco",
+    "description": "Taller práctico donde aprenderás a configurar y automatizar flujos de firma en Auco. Incluye casos de uso reales y mejores prácticas.",
+    "date": "2026-04-22",
+    "time": "10:00",
+    "duration": "90 min",
+    "registrationUrl": "https://webinars.auco.com/automatizacion-procesos",
+    "instructor": "Marco Antonio López",
+    "capacity": 100
+  },
+  {
+    "id": 3,
+    "category": "Conferencia",
+    "title": "El futuro de la firma electrónica en Latinoamérica",
+    "description": "Conferencia magistral sobre tendencias y regulaciones de firma electrónica en Latinoamérica. Análisis del panorama legal y las oportunidades de transformación digital.",
+    "date": "2026-05-05",
+    "time": "15:00",
+    "duration": "120 min",
+    "registrationUrl": "https://webinars.auco.com/futuro-firma-electronica",
+    "instructor": "Dr. Ricardo Cortés",
+    "capacity": 1000
+  },
+  {
+    "id": 4,
+    "category": "Webinar",
+    "title": "Seguridad y cumplimiento normativo en Auco",
+    "description": "Descubre como Auco garantiza la seguridad de tus documentos y cumple con regulaciones internacionales. Sesión de preguntas y respuestas incluida.",
+    "date": "2026-04-29",
+    "time": "16:00",
+    "duration": "45 min",
+    "registrationUrl": "https://webinars.auco.com/seguridad-cumplimiento",
+    "instructor": "Sofia García",
+    "capacity": 300
+  },
+  {
+    "id": 5,
+    "category": "Taller",
+    "title": "Integración de Auco con sistemas externos",
+    "description": "Taller técnico para desarrolladores sobre cómo integrar Auco con APIs externas y sistemas empresariales. Ejercicios prácticos incluidos.",
+    "date": "2026-05-13",
+    "time": "11:00",
+    "duration": "120 min",
+    "registrationUrl": "https://webinars.auco.com/integracion-apis",
+    "instructor": "Javier Rodríguez",
+    "capacity": 80
+  },
+  {
+    "id": 6,
+    "category": "Evento comunitario",
+    "title": "Meetup de usuarios Auco - Madrid",
+    "description": "Reunion presencial de usuarios de Auco en Madrid. Networking, demostraciones de nuevas features y sesión de networking informal.",
+    "date": "2026-06-10",
+    "time": "18:30",
+    "duration": "180 min",
+    "registrationUrl": "https://webinars.auco.com/meetup-madrid",
+    "instructor": "Comunidad Auco",
+    "capacity": 50
+  }
+]

@@ -133,9 +133,36 @@ function validateDocuments(documents) {
   assertUnique(ids, "Documento id");
 }
 
-export function validateHelpCenterContentData({ faqs, videos, processes, documents }) {
+function validateEvents(events) {
+  assert(Array.isArray(events), "events.json debe exportar un arreglo");
+
+  const ids = [];
+
+  events.forEach((event, index) => {
+    assert(typeof event === "object" && event !== null, `Evento #${index + 1} debe ser objeto`);
+    assert(Number.isInteger(event.id), `Evento #${index + 1} debe tener id entero`);
+    assert(isNonEmptyString(event.category), `Evento #${index + 1} debe tener category no vacio`);
+    assert(isNonEmptyString(event.title), `Evento #${index + 1} debe tener title no vacio`);
+    assert(isNonEmptyString(event.description), `Evento #${index + 1} debe tener description no vacio`);
+    assert(isNonEmptyString(event.date), `Evento #${index + 1} debe tener date no vacio`);
+    assert(/^\d{4}-\d{2}-\d{2}$/.test(event.date), `Evento #${index + 1} date tiene formato invalido (usa YYYY-MM-DD)`);
+    assert(isNonEmptyString(event.time), `Evento #${index + 1} debe tener time no vacio`);
+    assert(/^\d{2}:\d{2}$/.test(event.time), `Evento #${index + 1} time tiene formato invalido (usa HH:MM)`);
+    assert(isNonEmptyString(event.duration), `Evento #${index + 1} debe tener duration no vacio`);
+    assert(isNonEmptyString(event.instructor), `Evento #${index + 1} debe tener instructor no vacio`);
+    assert(Number.isInteger(event.capacity) && event.capacity > 0, `Evento #${index + 1} debe tener capacity como entero positivo`);
+    assert(isNonEmptyString(event.registrationUrl), `Evento #${index + 1} debe tener registrationUrl no vacio`);
+    assert(event.registrationUrl.startsWith("http"), `Evento #${index + 1} registrationUrl debe ser URL valida`);
+    ids.push(event.id);
+  });
+
+  assertUnique(ids, "Evento id");
+}
+
+export function validateHelpCenterContentData({ faqs, videos, processes, documents, events }) {
   validateFaqs(faqs);
   validateVideos(videos);
   validateProcesses(processes);
   validateDocuments(documents);
+  validateEvents(events);
 }

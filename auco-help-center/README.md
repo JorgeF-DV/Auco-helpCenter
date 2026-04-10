@@ -22,6 +22,7 @@ Punto de entrada:
 Modulo principal:
 
 - `src/help-center/App.jsx` orquesta estado compartido y cambio de vistas.
+- La navegación principal incluye FAQs, videos, procesos, documentos legales y eventos.
 
 ## Estructura de carpetas
 
@@ -36,6 +37,7 @@ src/
 			videos.json
 			processes.json
 			documents.json
+			events.json
 			validateContent.js
 		pages/
 		styles/
@@ -87,16 +89,37 @@ Documentos legales (`documents.json`):
 - `size` (string)
 - `url` (string)
 
+Eventos (`events.json`):
+
+- `id` (number)
+- `category` (string) — Webinar, Taller, Conferencia, Evento comunitario
+- `title` (string)
+- `description` (string)
+- `date` (string) — Formato YYYY-MM-DD
+- `time` (string) — Formato HH:MM
+- `duration` (string)
+- `instructor` (string)
+- `capacity` (number)
+- `registrationUrl` (string) — URL de registro del evento
+
 ## Validacion de contenido
 
-Al iniciar la app se valida la estructura de `faqs.json`, `videos.json`, `processes.json` y `documents.json`.
+Al iniciar la app se valida la estructura de `faqs.json`, `videos.json`, `processes.json`, `documents.json` y `events.json`.
 
 - Archivo: `src/help-center/content/validateContent.js`
 - Invocacion: `src/help-center/App.jsx`
 
 Si el contrato es invalido, la app falla con un error explicito para evitar inconsistencias silenciosas.
 
-La búsqueda del home indexa FAQs, videos, procesos y documentos legales.
+La búsqueda del home indexa FAQs, videos, procesos, documentos legales y eventos.
+
+## Secciones principales
+
+- Preguntas frecuentes
+- Videos tutoriales
+- Procesos
+- Documentos legales
+- Eventos
 
 ## Scripts
 

@@ -5,6 +5,7 @@ import VideosPage     from "./pages/videos/index";
 import ProcessesPage  from "./pages/processes/index";
 import ProcessDetail  from "./pages/processes/[slug]";
 import DocumentsPage  from "./pages/documents/index";
+import EventsPage     from "./pages/events/index";
 import { validateHelpCenterContent } from "./content/validateContent";
 
 validateHelpCenterContent();
@@ -86,6 +87,13 @@ export default function AucoHelpCenter() {
     case "documents":
       return (
         <DocumentsPage
+          setPage={navigate}
+        />
+      );
+
+    case "events":
+      return (
+        <EventsPage
           setPage={navigate}
         />
       );
