@@ -75,6 +75,12 @@ Resultado esperado:
 - Añadir smoke test de build y navegación principal en CI.
 - Definir SLO interno para tiempo de respuesta de búsqueda local.
 
+Estado actual (2026-04-15):
+- Implementado: tests nuevos para páginas faltantes en `faqs`, `events` y `processes` list.
+- Implementado: regresiones URL adicionales para rutas `/processes`, `/events` y `/documents`.
+- Implementado: smoke test dedicado de navegación principal y ejecución en CI (`npm run smoke:ci`).
+- Definido SLO interno: p95 de búsqueda local <= 120 ms en dataset estándar del help center.
+
 Resultado esperado:
 - Mayor confianza para refactors.
 - Menos regresiones silenciosas.

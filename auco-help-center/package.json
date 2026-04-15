@@ -10,6 +10,8 @@
     "test": "vitest",
     "test:run": "vitest run",
     "test:coverage": "vitest run --coverage",
+    "test:smoke": "vitest run src/help-center/smoke.navigation.test.jsx",
+    "smoke:ci": "npm run build && npm run test:smoke",
     "preview": "vite preview",
     "check:content": "node scripts/check-content.mjs",
     "check": "npm run lint && npm run check:content && npm run build && npm run test:run"

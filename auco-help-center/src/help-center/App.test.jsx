@@ -127,6 +127,27 @@ describe("Help Center App", () => {
     expect(screen.getByPlaceholderText("Buscar por título, tema o categoría...")).toHaveValue("perfil");
   });
 
+  it("resuelve deep-link a listado de procesos", () => {
+    window.history.pushState({}, "", "/processes");
+
+    render(<App />);
+
+    expect(screen.getByRole("heading", { name: "Procesos" })).toBeInTheDocument();
+  });
+
+  it("resuelve deep-link a eventos y documentos", () => {
+    window.history.pushState({}, "", "/events");
+
+    const { unmount } = render(<App />);
+    expect(screen.getByRole("heading", { name: "Eventos" })).toBeInTheDocument();
+
+    unmount();
+    window.history.pushState({}, "", "/documents");
+
+    render(<App />);
+    expect(screen.getByRole("heading", { name: "Documentos Legales" })).toBeInTheDocument();
+  });
+
   it("redirige rutas desconocidas al home", () => {
     window.history.pushState({}, "", "/ruta-no-existe");
 
