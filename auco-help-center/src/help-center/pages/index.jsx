@@ -8,6 +8,7 @@ import processes from "../content/processes.json";
 import documents from "../content/documents.json";
 import events from "../content/events.json";
 import { normalizeText } from "../utils/search";
+import { buildHomeSearchResults, getTopItems } from "../content/selectors";
 
 function SectionCard({ title, subtitle, count, onClick, accentColor, icon }) {
   const [hovered, setHovered] = useState(false);
@@ -192,56 +193,20 @@ export default function HomePage({
   }
 
   const searchResults = useMemo(() => {
-    if (normalizedSearchTerm.length <= 2) return [];
-
-    const faqHits = faqs
-      .filter((f) => {
-        const haystack = `${f.question} ${f.answer}`;
-        return normalizeText(haystack).includes(normalizedSearchTerm);
-      })
-      .map((f) => ({ type: "FAQ", label: f.question, description: f.answer, id: f.id }));
-
-    const videoHits = videos
-      .filter((v) => {
-        const haystack = `${v.title} ${v.description} ${v.category}`;
-        return normalizeText(haystack).includes(normalizedSearchTerm);
-      })
-      .map((v) => ({ type: "Video", label: v.title, description: v.description, id: v.id, category: v.category }));
-
-    const processHits = processes
-      .filter((p) => {
-        const stepActions = p.steps.map((step) => step.action).join(" ");
-        const haystack = `${p.title} ${p.description} ${p.category} ${p.tip} ${stepActions}`;
-        return normalizeText(haystack).includes(normalizedSearchTerm);
-      })
-      .map((p) => ({ type: "Proceso", label: p.title, description: p.description, id: p.number, slug: p.slug }));
-
-    const documentHits = documents
-      .filter((d) => {
-        const haystack = `${d.title} ${d.description} ${d.category}`;
-        return normalizeText(haystack).includes(normalizedSearchTerm);
-      })
-      .map((d) => ({ type: "Documento", label: d.title, description: d.description, id: d.id, url: d.url }));
-
-    const eventHits = events
-      .filter((e) => {
-        const haystack = `${e.title} ${e.description} ${e.category}`;
-        return normalizeText(haystack).includes(normalizedSearchTerm);
-      })
-      .map((e) => ({ type: "Evento", label: e.title, description: e.description, id: e.id, registrationUrl: e.registrationUrl }));
-
-    const dedup = new Map();
-    [...faqHits, ...videoHits, ...processHits, ...documentHits, ...eventHits].forEach((hit) => {
-      const key = `${hit.type}-${hit.id}`;
-      if (!dedup.has(key)) dedup.set(key, hit);
+    return buildHomeSearchResults({
+      query: normalizedSearchTerm,
+      faqs,
+      videos,
+      processes,
+      documents,
+      events,
+      minLength: 3,
     });
-
-    return Array.from(dedup.values());
   }, [normalizedSearchTerm]);
 
-  const topFaqs = faqs.slice(0, 2);
-  const topVideos = videos.slice(0, 2);
-  const topProcesses = processes.slice(0, 2);
+  const topFaqs = getTopItems(faqs, 2);
+  const topVideos = getTopItems(videos, 2);
+  const topProcesses = getTopItems(processes, 2);
 
   return (
     <Layout onNavigate={setPage}>

@@ -5,6 +5,7 @@ import SearchBar from "../../components/SearchBar";
 import { colors, typography, radius, styles } from "../../styles/theme";
 import videos from "../../content/videos.json";
 import { normalizeText } from "../../utils/search";
+import { filterVideos } from "../../content/selectors";
 
 function VideoModal({ video, onClose, triggerRef }) {
   const closeButtonRef = useRef(null);
@@ -164,15 +165,9 @@ export default function VideosPage({ setPage, selectedVideoCategory, selectedVid
   }, [clearSelection]);
 
   const filtered = useMemo(() => {
-    return videos.filter((v) => {
-      const matchesCategory =
-        !normalizedSelectedCategory || normalizeText(v.category) === normalizedSelectedCategory;
-      const matchesSearch =
-        !normalizedSearch ||
-        normalizeText(v.title).includes(normalizedSearch) ||
-        normalizeText(v.description).includes(normalizedSearch) ||
-        normalizeText(v.category).includes(normalizedSearch);
-      return matchesCategory && matchesSearch;
+    return filterVideos(videos, {
+      search: normalizedSearch,
+      selectedCategory: normalizedSelectedCategory,
     });
   }, [normalizedSearch, normalizedSelectedCategory]);
 
