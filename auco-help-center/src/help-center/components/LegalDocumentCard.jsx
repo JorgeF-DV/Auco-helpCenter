@@ -7,7 +7,7 @@
 // ─────────────────────────────────────────────────────────────
 
 import { useState } from "react";
-import { colors, typography, radius, shadows } from "../styles/theme";
+import { colors, typography, radius, shadows, getBadgeStyle, getInteractiveCardStyle, getPillButtonStyle } from "../styles/theme";
 
 export default function LegalDocumentCard({ document, onView, onDownload }) {
   const [hovered, setHovered] = useState(false);
@@ -27,20 +27,15 @@ export default function LegalDocumentCard({ document, onView, onDownload }) {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{
-        width: "100%",
-        boxSizing: "border-box",
-        padding: "20px",
-        border: `1.5px solid ${hovered ? accentColor : colors.border}`,
-        borderRadius: radius.lg,
-        background: colors.white,
-        cursor: "pointer",
-        textAlign: "left",
-        transition: "all 0.2s ease",
-        transform: hovered ? "translateY(-2px)" : "none",
-        boxShadow: hovered ? shadows.md : shadows.sm,
-        display: "flex",
-        flexDirection: "column",
-        gap: "12px",
+        ...getInteractiveCardStyle({
+          hovered,
+          accentColor,
+          padding: "20px",
+          borderRadius: radius.lg,
+          shadow: shadows.sm,
+          hoverShadow: shadows.md,
+          hoverTranslateY: "-2px",
+        }),
       }}
     >
       {/* Header con categoría y tamaño */}
@@ -53,18 +48,13 @@ export default function LegalDocumentCard({ document, onView, onDownload }) {
         }}
       >
         <span
-          style={{
-            display: "inline-block",
-            padding: "4px 10px",
-            background: colors.primaryBg,
+          style={getBadgeStyle("primary", {
             color: accentColor,
-            borderRadius: radius.sm,
             fontSize: typography.xs,
-            fontWeight: typography.semibold,
-            fontFamily: typography.fontFamily,
+            padding: "4px 10px",
+            borderRadius: radius.sm,
             whiteSpace: "nowrap",
-            border: `1px solid ${colors.border}`,
-          }}
+          })}
         >
           {document.category}
         </span>
@@ -137,17 +127,15 @@ export default function LegalDocumentCard({ document, onView, onDownload }) {
               event.stopPropagation();
               onDownload();
             }}
-            style={{
-              border: `1px solid ${colors.border}`,
-              background: colors.white,
-              color: colors.text,
-              borderRadius: radius.full,
+            style={getPillButtonStyle({
+              active: false,
+              activeBackground: colors.primary,
+              activeColor: colors.white,
+              inactiveBackground: colors.white,
+              inactiveColor: colors.text,
               padding: "5px 10px",
-              fontSize: typography.xs,
               fontWeight: typography.medium,
-              fontFamily: typography.fontFamily,
-              cursor: "pointer",
-            }}
+            })}
           >
             Descargar
           </button>

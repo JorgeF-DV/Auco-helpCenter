@@ -11,7 +11,7 @@ import { useEffect, useMemo, useState } from "react";
 import Layout from "../../components/Layout";
 import FAQItem from "../../components/FAQItem";
 import SearchBar from "../../components/SearchBar";
-import { colors, typography, radius, styles } from "../../styles/theme";
+import { colors, typography, styles, getBackButtonStyle, getPillButtonStyle, pageStyles } from "../../styles/theme";
 import faqs from "../../content/faqs.json";
 import { normalizeText } from "../../utils/search";
 import { filterFaqs } from "../../content/selectors";
@@ -19,27 +19,11 @@ import { filterFaqs } from "../../content/selectors";
 // ── Cabecera de sección reutilizable ─────────────────────────
 function PageHeader({ title, subtitle }) {
   return (
-    <div style={{ marginBottom: "28px", paddingBottom: "20px", borderBottom: `1px solid ${colors.border}` }}>
-      <h1
-        style={{
-          color: colors.text,
-          fontSize: typography.xl,
-          fontWeight: typography.bold,
-          margin: "0 0 6px",
-          fontFamily: typography.fontFamily,
-          letterSpacing: "-0.2px",
-        }}
-      >
+    <div style={pageStyles.sectionHeader}>
+      <h1 style={pageStyles.sectionTitle}>
         {title}
       </h1>
-      <p
-        style={{
-          color: colors.textMuted,
-          fontSize: typography.base,
-          margin: 0,
-          fontFamily: typography.fontFamily,
-        }}
-      >
+      <p style={pageStyles.sectionSubtitle}>
         {subtitle}
       </p>
     </div>
@@ -110,18 +94,13 @@ export default function FAQsPage({ setPage, initialSearch, clearSelection }) {
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              style={{
+              style={getPillButtonStyle({
+                active: isActive,
                 padding: "8px 16px",
-                borderRadius: radius.full,
-                border: `1.5px solid ${isActive ? colors.primary : colors.border}`,
-                background: isActive ? colors.primary : colors.white,
-                color: isActive ? colors.white : colors.textMuted,
-                cursor: "pointer",
-                fontSize: typography.sm,
                 fontWeight: isActive ? typography.semibold : typography.regular,
-                fontFamily: typography.fontFamily,
-                transition: "all 0.15s ease",
-              }}
+                inactiveBackground: colors.white,
+                inactiveColor: colors.textMuted,
+              })}
             >
               {cat}
             </button>
@@ -173,16 +152,6 @@ export default function FAQsPage({ setPage, initialSearch, clearSelection }) {
 }
 
 const backButtonStyle = {
-  background: "transparent",
-  border: "none",
+  ...getBackButtonStyle(),
   color: colors.dark,
-  cursor: "pointer",
-  fontSize: typography.sm,
-  fontWeight: typography.semibold,
-  fontFamily: typography.fontFamily,
-  padding: 0,
-  marginBottom: "20px",
-  display: "inline-flex",
-  alignItems: "center",
-  gap: "8px",
 };

@@ -59,6 +59,11 @@ Estado actual (2026-04-15):
 - Introducir tokens semánticos adicionales (info, warning, accent, interactiveHover).
 - Medir y corregir inconsistencias visuales por componente.
 
+Estado actual (2026-04-15):
+- Implementado: tokens semánticos y helpers reutilizables para cards, badges, pills y back buttons en `src/help-center/styles/theme.js`.
+- Implementado: reutilización de variantes en Layout, Home, FAQs, Videos, Events, Documents, Process detail y tarjetas base.
+- Validado: sintaxis revisada en los archivos tocados; queda pendiente corrida completa de lint/tests.
+
 Resultado esperado:
 - UI más consistente.
 - Menos costo por cambios de diseño global.

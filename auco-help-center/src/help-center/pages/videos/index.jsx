@@ -1,8 +1,8 @@
-import { useState, useEffect, useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Layout from "../../components/Layout";
 import VideoCard from "../../components/VideoCard";
 import SearchBar from "../../components/SearchBar";
-import { colors, typography, radius, styles } from "../../styles/theme";
+import { colors, typography, radius, getBackButtonStyle, getBadgeStyle, getPillButtonStyle, pageStyles } from "../../styles/theme";
 import videos from "../../content/videos.json";
 import { normalizeText } from "../../utils/search";
 import { filterVideos } from "../../content/selectors";
@@ -92,8 +92,10 @@ function VideoModal({ video, onClose, triggerRef }) {
       >
         <div style={{ padding: "16px 20px", display: "flex", justifyContent: "space-between", alignItems: "center", borderBottom: `1px solid ${colors.border}` }}>
           <div>
-            <span style={{ ...styles.badge, background: colors.successBg, color: "#15803D", marginBottom: "6px" }}>{video.category}</span>
-            <h3 id={titleId} style={{ margin: "6px 0 0", color: colors.text, fontSize: typography.md, fontWeight: typography.semibold, fontFamily: typography.fontFamily }}>{video.title}</h3>
+            <span style={getBadgeStyle("success", { marginBottom: "6px" })}>{video.category}</span>
+            <h3 id={titleId} style={{ margin: "6px 0 0", color: colors.text, fontSize: typography.md, fontWeight: typography.semibold, fontFamily: typography.fontFamily }}>
+              {video.title}
+            </h3>
           </div>
 
           <div style={{ display: "flex", alignItems: "center", gap: "10px", marginLeft: "16px" }}>
@@ -175,10 +177,7 @@ export default function VideosPage({ setPage, selectedVideoCategory, selectedVid
 
   return (
     <Layout onNavigate={setPage}>
-      <button
-        onClick={() => setPage("home")}
-        style={backButtonStyle}
-      >
+      <button onClick={() => setPage("home")} style={backButtonStyle}>
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
           <line x1="19" y1="12" x2="5" y2="12" />
           <polyline points="12 19 5 12 12 5" />
@@ -186,19 +185,24 @@ export default function VideosPage({ setPage, selectedVideoCategory, selectedVid
         Volver a inicio
       </button>
 
-      <div style={{ marginBottom: "28px", paddingBottom: "20px", borderBottom: `1px solid ${colors.border}` }}>
-        <h1 style={{ color: colors.text, fontSize: typography.xl, fontWeight: typography.bold, margin: "0 0 6px", fontFamily: typography.fontFamily, letterSpacing: "-0.2px" }}>
-          Videos tutoriales
-        </h1>
-        <p style={{ color: colors.textMuted, fontSize: typography.base, margin: 0, fontFamily: typography.fontFamily }}>
-          Aprende con demostraciones visuales de cada función de la plataforma.
-        </p>
+      <div style={pageStyles.sectionHeader}>
+        <h1 style={pageStyles.sectionTitle}>Videos tutoriales</h1>
+        <p style={pageStyles.sectionSubtitle}>Aprende con demostraciones visuales de cada función de la plataforma.</p>
       </div>
 
       <div style={{ marginBottom: "16px", display: "flex", gap: "10px", flexWrap: "wrap" }}>
         <button
           onClick={() => setSelectedCategory("")}
-          style={{ background: selectedCategory === "" ? colors.primary : colors.surface, color: selectedCategory === "" ? colors.white : colors.text, border: `1px solid ${colors.border}`, borderRadius: radius.lg, padding: "8px 12px", cursor: "pointer" }}
+          style={getPillButtonStyle({
+            active: selectedCategory === "",
+            activeBackground: colors.primary,
+            activeColor: colors.white,
+            inactiveBackground: colors.surface,
+            inactiveColor: colors.text,
+            borderRadius: radius.lg,
+            padding: "8px 12px",
+            fontWeight: typography.regular,
+          })}
         >
           Todas
         </button>
@@ -206,7 +210,16 @@ export default function VideosPage({ setPage, selectedVideoCategory, selectedVid
           <button
             key={cat}
             onClick={() => setSelectedCategory(cat)}
-            style={{ background: selectedCategory === cat ? colors.primary : colors.surface, color: selectedCategory === cat ? colors.white : colors.text, border: `1px solid ${colors.border}`, borderRadius: radius.lg, padding: "8px 12px", cursor: "pointer" }}
+            style={getPillButtonStyle({
+              active: selectedCategory === cat,
+              activeBackground: colors.primary,
+              activeColor: colors.white,
+              inactiveBackground: colors.surface,
+              inactiveColor: colors.text,
+              borderRadius: radius.lg,
+              padding: "8px 12px",
+              fontWeight: typography.regular,
+            })}
           >
             {cat}
           </button>
@@ -222,7 +235,7 @@ export default function VideosPage({ setPage, selectedVideoCategory, selectedVid
       </p>
 
       {filtered.length === 0 ? (
-        <div style={{ ...styles.card, padding: "60px 40px", textAlign: "center", color: colors.textMuted, fontFamily: typography.fontFamily, fontSize: typography.base }}>
+        <div style={{ ...pageStyles.emptyState, padding: "60px 40px" }}>
           No se encontraron videos con ese criterio.
         </div>
       ) : (
@@ -251,16 +264,6 @@ export default function VideosPage({ setPage, selectedVideoCategory, selectedVid
 }
 
 const backButtonStyle = {
-  background: "transparent",
-  border: "none",
+  ...getBackButtonStyle(),
   color: colors.dark,
-  cursor: "pointer",
-  fontSize: typography.sm,
-  fontWeight: typography.semibold,
-  fontFamily: typography.fontFamily,
-  padding: 0,
-  marginBottom: "20px",
-  display: "inline-flex",
-  alignItems: "center",
-  gap: "8px",
 };

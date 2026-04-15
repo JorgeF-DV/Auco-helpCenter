@@ -10,7 +10,7 @@
 import { useEffect, useMemo, useState } from "react";
 import Layout from "../../components/Layout";
 import LegalDocumentCard from "../../components/LegalDocumentCard";
-import { colors, typography, radius } from "../../styles/theme";
+import { colors, typography, radius, getBackButtonStyle, getPillButtonStyle, pageStyles } from "../../styles/theme";
 import documents from "../../content/documents.json";
 
 const CATEGORY_ORDER = [
@@ -25,27 +25,11 @@ const CATEGORY_ORDER = [
 // ── Cabecera de sección ─────────────────────────────────────
 function PageHeader({ title, subtitle }) {
   return (
-    <div style={{ marginBottom: "28px", paddingBottom: "20px", borderBottom: `1px solid ${colors.border}` }}>
-      <h1
-        style={{
-          color: colors.text,
-          fontSize: typography.xl,
-          fontWeight: typography.bold,
-          margin: "0 0 6px",
-          fontFamily: typography.fontFamily,
-          letterSpacing: "-0.2px",
-        }}
-      >
+    <div style={pageStyles.sectionHeader}>
+      <h1 style={pageStyles.sectionTitle}>
         {title}
       </h1>
-      <p
-        style={{
-          color: colors.textMuted,
-          fontSize: typography.base,
-          margin: 0,
-          fontFamily: typography.fontFamily,
-        }}
-      >
+      <p style={pageStyles.sectionSubtitle}>
         {subtitle}
       </p>
     </div>
@@ -54,23 +38,8 @@ function PageHeader({ title, subtitle }) {
 
 // ── Botón de volver ─────────────────────────────────────────
 const backButtonStyle = {
-  display: "flex",
-  alignItems: "center",
-  gap: "8px",
-  paddingRight: "12px",
-  paddingLeft: "12px",
-  paddingTop: "8px",
-  paddingBottom: "8px",
-  marginBottom: "20px",
-  background: "transparent",
-  border: "none",
-  borderRadius: "6px",
-  cursor: "pointer",
-  fontSize: typography.sm,
-  fontWeight: typography.medium,
+  ...getBackButtonStyle(),
   color: colors.textMuted,
-  fontFamily: typography.fontFamily,
-  transition: "color 0.15s ease, background-color 0.15s ease",
 };
 
 export default function DocumentsPage({ setPage }) {
@@ -130,18 +99,7 @@ export default function DocumentsPage({ setPage }) {
             <button
               key={category}
               onClick={() => setActiveCategory(category)}
-              style={{
-                padding: "8px 14px",
-                borderRadius: radius.full,
-                border: `1.5px solid ${isActive ? colors.primary : colors.border}`,
-                background: isActive ? colors.primary : colors.white,
-                color: isActive ? colors.white : colors.text,
-                fontSize: typography.sm,
-                fontWeight: typography.medium,
-                cursor: "pointer",
-                fontFamily: typography.fontFamily,
-                transition: "all 0.15s ease",
-              }}
+              style={getPillButtonStyle({ active: isActive, activeBackground: colors.primary, activeColor: colors.white, inactiveBackground: colors.white, inactiveColor: colors.text, borderRadius: radius.full, padding: "8px 14px", fontWeight: typography.medium })}
             >
               {category}
             </button>

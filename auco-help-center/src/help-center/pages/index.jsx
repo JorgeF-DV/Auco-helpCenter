@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import Layout from "../components/Layout";
 import SearchBar from "../components/SearchBar";
-import { colors, typography, radius, shadows, styles } from "../styles/theme";
+import { colors, typography, radius, shadows, styles, getBadgeStyle, getInteractiveCardStyle, pageStyles } from "../styles/theme";
 import faqs from "../content/faqs.json";
 import videos from "../content/videos.json";
 import processes from "../content/processes.json";
@@ -18,18 +18,15 @@ function SectionCard({ title, subtitle, count, onClick, accentColor, icon }) {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{
-        ...styles.card,
-        border: `1.5px solid ${hovered ? accentColor : colors.border}`,
-        padding: "24px",
-        cursor: "pointer",
-        textAlign: "left",
+        ...getInteractiveCardStyle({
+          hovered,
+          accentColor,
+          padding: "24px",
+          shadow: shadows.sm,
+          hoverShadow: `0 6px 20px ${accentColor}22`,
+          hoverTranslateY: "-2px",
+        }),
         width: "100%",
-        transition: "border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease",
-        transform: hovered ? "translateY(-2px)" : "none",
-        boxShadow: hovered ? `0 6px 20px ${accentColor}22` : shadows.sm,
-        display: "flex",
-        flexDirection: "column",
-        gap: "14px",
       }}
     >
       <div
@@ -68,14 +65,14 @@ function SectionCard({ title, subtitle, count, onClick, accentColor, icon }) {
 }
 
 function SearchResult({ type, label, description, onClick }) {
-  const badgeStylesByType = {
-    Video: { background: colors.successBg, color: "#15803D" },
-    FAQ: { background: colors.primaryBg, color: colors.primary },
-    Proceso: { background: colors.warnBg, color: colors.warnText },
-    Documento: { background: colors.primaryBg, color: colors.primary },
-    Evento: { background: colors.primaryBg, color: colors.primary },
+  const badgeVariantByType = {
+    Video: "success",
+    FAQ: "primary",
+    Proceso: "warning",
+    Documento: "primary",
+    Evento: "primary",
   };
-  const badgeStyle = badgeStylesByType[type] || badgeStylesByType.FAQ;
+  const badgeVariant = badgeVariantByType[type] || "primary";
 
   return (
     <button
@@ -91,7 +88,7 @@ function SearchResult({ type, label, description, onClick }) {
         cursor: "pointer",
       }}
     >
-      <span style={{ ...styles.badge, ...badgeStyle, whiteSpace: "nowrap", marginTop: "2px" }}>
+      <span style={getBadgeStyle(badgeVariant, { whiteSpace: "nowrap", marginTop: "2px" })}>
         {type}
       </span>
       <div>
@@ -228,7 +225,7 @@ export default function HomePage({
         <section style={{ marginBottom: "36px" }}>
           <h2 style={{ color: colors.text, fontSize: typography.lg, fontWeight: typography.semibold, margin: "0 0 14px", fontFamily: typography.fontFamily }}>Resultados de búsqueda</h2>
           {searchResults.length === 0 ? (
-            <div style={{ ...styles.card, padding: "44px 26px", textAlign: "center", color: colors.textMuted, fontFamily: typography.fontFamily }}>
+            <div style={{ ...pageStyles.emptyState, padding: "44px 26px" }}>
               No se encontraron resultados para <strong>{searchTerm}</strong>
             </div>
           ) : (
@@ -264,7 +261,7 @@ export default function HomePage({
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px", marginBottom: "28px" }}>
             {topFaqs.map((faq) => (
               <div key={`faq-${faq.id}`} style={{ ...styles.card, padding: "18px", cursor: "default" }}>
-                <span style={{ ...styles.badge, background: colors.primaryBg, color: colors.primary, marginBottom: "8px" }}>FAQ</span>
+                <span style={getBadgeStyle("primary", { marginBottom: "8px" })}>FAQ</span>
                 <h3 style={{ color: colors.text, fontSize: typography.base, fontWeight: typography.semibold, margin: "0 0 8px", fontFamily: typography.fontFamily }}>{faq.question}</h3>
                 <p style={{ color: colors.textMuted, fontSize: typography.sm, margin: 0, fontFamily: typography.fontFamily, lineHeight: 1.5 }}>{faq.answer.substring(0, 110)}...</p>
               </div>
@@ -282,7 +279,7 @@ export default function HomePage({
                 }}
                 style={{ ...styles.card, padding: "18px", cursor: "pointer", border: `1.5px solid ${colors.border}` }}
               >
-                <span style={{ ...styles.badge, background: colors.successBg, color: "#15803D", marginBottom: "8px" }}>{video.category}</span>
+                <span style={getBadgeStyle("success", { marginBottom: "8px" })}>{video.category}</span>
                 <h3 style={{ color: colors.text, fontSize: typography.base, fontWeight: typography.semibold, margin: "0 0 8px", fontFamily: typography.fontFamily }}>{video.title}</h3>
                 <p style={{ color: colors.textMuted, fontSize: typography.sm, margin: 0, fontFamily: typography.fontFamily, lineHeight: 1.5 }}>{video.description.substring(0, 100)}...</p>
               </div>
@@ -299,7 +296,7 @@ export default function HomePage({
                 }}
                 style={{ ...styles.card, padding: "18px", textAlign: "left", border: `1.5px solid ${colors.border}`, cursor: "pointer" }}
               >
-                <span style={{ ...styles.badge, background: colors.primaryBg, color: colors.primary, marginBottom: "8px" }}>{p.category}</span>
+                <span style={getBadgeStyle("primary", { marginBottom: "8px" })}>{p.category}</span>
                 <h3 style={{ color: colors.text, fontSize: typography.base, fontWeight: typography.semibold, margin: "0 0 8px", fontFamily: typography.fontFamily }}>{p.title}</h3>
                 <p style={{ color: colors.textMuted, fontSize: typography.sm, margin: 0, fontFamily: typography.fontFamily, lineHeight: 1.5 }}>{p.description.substring(0, 102)}...</p>
                 <span style={{ color: colors.primary, fontSize: typography.sm, fontWeight: typography.semibold, marginTop: "8px", display: "inline-block" }}>{p.steps.length} pasos →</span>

@@ -14,7 +14,7 @@
 // ─────────────────────────────────────────────────────────────
 
 import { useState } from "react";
-import { colors, typography, radius, shadows } from "../styles/theme";
+import { colors, typography, radius, shadows, getBadgeStyle, getInteractiveCardStyle } from "../styles/theme";
 
 // Ícono de calendario
 function CalendarIcon() {
@@ -104,18 +104,13 @@ function PeopleIcon() {
 function CategoryBadge({ category }) {
   return (
     <span
-      style={{
-        display: "inline-block",
-        backgroundColor: colors.primaryBg,
-        color: colors.primary,
+      style={getBadgeStyle("primary", {
         fontSize: typography.xs,
-        fontWeight: typography.semibold,
         padding: "4px 10px",
         borderRadius: radius.sm,
         marginBottom: "12px",
-        fontFamily: typography.fontFamily,
-        border: `1px solid ${colors.border}`,
-      }}
+        whiteSpace: "nowrap",
+      })}
     >
       {category}
     </span>
@@ -155,19 +150,15 @@ export default function EventCard({
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{
-        width: "100%",
-        boxSizing: "border-box",
-        background: colors.white,
-        border: `1.5px solid ${hovered ? colors.primary : colors.border}`,
-        borderRadius: radius.lg,
-        padding: "20px",
-        boxShadow: hovered ? shadows.md : shadows.sm,
-        transform: hovered ? "translateY(-2px)" : "none",
-        transition: "all 0.2s ease",
-        display: "flex",
-        flexDirection: "column",
-        gap: "12px",
-        cursor: "pointer",
+        ...getInteractiveCardStyle({
+          hovered,
+          accentColor: colors.primary,
+          padding: "20px",
+          borderRadius: radius.lg,
+          shadow: shadows.sm,
+          hoverShadow: shadows.md,
+          hoverTranslateY: "-2px",
+        }),
       }}
     >
       <div>
