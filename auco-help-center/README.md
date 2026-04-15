@@ -11,9 +11,14 @@ Frontend SPA del Centro de Ayuda de Auco, construida con React + Vite.
 ## Arquitectura
 
 - Tipo de app: SPA sin backend.
-- Navegacion: enrutamiento interno por estado (sin React Router).
+- Navegacion: React Router (URLs reales y deep-linking).
 - Datos: contenido local en JSON.
 - Estilos: estilos inline con tokens centralizados en `theme.js`.
+
+Principios de arquitectura:
+
+- Ver [ARCHITECTURE.md](ARCHITECTURE.md) para las reglas de diseño, separacion de responsabilidades y criterios de escalabilidad del proyecto.
+- Ver [IMPROVEMENT_PLAN.md](IMPROVEMENT_PLAN.md) para el roadmap de mejora por fases (seguridad, escalabilidad y calidad).
 
 Punto de entrada:
 
@@ -178,7 +183,6 @@ Error `vite no se reconoce`:
 
 ## Limitaciones conocidas
 
-- No hay deep-linking ni historial real por URL.
 - No hay CMS; el contenido se edita manualmente en JSON.
 - El chat de soporte es un mock local (sin API real).
 
