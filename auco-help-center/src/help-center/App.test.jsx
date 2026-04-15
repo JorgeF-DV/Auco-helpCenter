@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { act, fireEvent, render, screen } from "@testing-library/react";
 import { beforeAll, beforeEach, describe, expect, it, vi } from "vitest";
 import App from "./App";
 
@@ -9,6 +9,7 @@ beforeAll(() => {
 
 beforeEach(() => {
   window.open.mockReset();
+  window.history.pushState({}, "", "/");
 });
 
 describe("Help Center App", () => {
@@ -62,5 +63,75 @@ describe("Help Center App", () => {
     fireEvent.click(documentResult);
 
     expect(window.open).toHaveBeenCalledWith("/Documentos Legales/Auco vs Docusign.pdf", "_blank", "noopener,noreferrer");
+  });
+
+  it("resuelve deep-link a detalle de proceso por slug", () => {
+    window.history.pushState({}, "", "/processes/reactivar-proceso-rechazado");
+
+    render(<App />);
+
+    expect(screen.getByRole("heading", { name: "Cómo reactivar un proceso rechazado por un firmante" })).toBeInTheDocument();
+    expect(screen.getByText("Pasos del proceso")).toBeInTheDocument();
+  });
+
+  it("resuelve deep-link de FAQs con query param", () => {
+    window.history.pushState(
+      {},
+      "",
+      "/faqs?q=Documento%20en%20estado%20firmado%20que%20no%20tiene%20firmas."
+    );
+
+    render(<App />);
+
+    expect(screen.getByRole("heading", { name: "Preguntas frecuentes" })).toBeInTheDocument();
+    expect(screen.getByPlaceholderText("Buscar por pregunta o palabra clave...")).toHaveValue(
+      "Documento en estado firmado que no tiene firmas."
+    );
+  });
+
+  it("resuelve deep-link de videos con filtros por query params", () => {
+    window.history.pushState(
+      {},
+      "",
+      "/videos?q=perfil&category=Perfil&videoId=1"
+    );
+
+    render(<App />);
+
+    expect(screen.getByRole("heading", { name: "Videos tutoriales" })).toBeInTheDocument();
+    expect(screen.getByPlaceholderText("Buscar por título, tema o categoría...")).toHaveValue("perfil");
+    expect(screen.getByRole("dialog")).toBeInTheDocument();
+  });
+
+  it("actualiza la vista al navegar con historial (back/forward)", () => {
+    render(<App />);
+
+    expect(screen.getByRole("heading", { name: "Centro de Ayuda", level: 1 })).toBeInTheDocument();
+
+    act(() => {
+      window.history.pushState({}, "", "/faqs?q=Documento%20en%20estado%20firmado%20que%20no%20tiene%20firmas.");
+      window.dispatchEvent(new PopStateEvent("popstate"));
+    });
+
+    expect(screen.getByRole("heading", { name: "Preguntas frecuentes" })).toBeInTheDocument();
+    expect(screen.getByPlaceholderText("Buscar por pregunta o palabra clave...")).toHaveValue(
+      "Documento en estado firmado que no tiene firmas."
+    );
+
+    act(() => {
+      window.history.pushState({}, "", "/videos?q=perfil&category=Perfil&videoId=1");
+      window.dispatchEvent(new PopStateEvent("popstate"));
+    });
+
+    expect(screen.getByRole("heading", { name: "Videos tutoriales" })).toBeInTheDocument();
+    expect(screen.getByPlaceholderText("Buscar por título, tema o categoría...")).toHaveValue("perfil");
+  });
+
+  it("redirige rutas desconocidas al home", () => {
+    window.history.pushState({}, "", "/ruta-no-existe");
+
+    render(<App />);
+
+    expect(screen.getByRole("heading", { name: "Centro de Ayuda", level: 1 })).toBeInTheDocument();
   });
 });
