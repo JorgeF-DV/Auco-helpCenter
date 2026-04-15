@@ -45,6 +45,13 @@ Resultado esperado:
 - Menos errores de contenido en runtime.
 - Contratos más claros para el equipo completo.
 
+Estado actual (2026-04-15):
+- Implementado: validacion tipada con Zod para faqs, videos, processes, documents y events.
+- Implementado: validaciones de unicidad y secuencialidad en ids, numbers y step_number dentro del esquema.
+- Implementado: capa `content/selectors` para busqueda global, filtros de FAQs/videos y transformaciones de eventos.
+- Integrado en UI: Home, FAQs, Videos y Events consumen selectors centralizados.
+- Validado: tests unitarios nuevos de selectors y validacion de contenido en verde.
+
 ## Fase 3 (escalabilidad UI, 1 semana)
 
 - Reducir estilos inline críticos y mover estilos compartidos a utilidades/objetos reutilizables.

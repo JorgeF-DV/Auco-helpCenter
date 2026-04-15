@@ -12,6 +12,7 @@ import Layout from "../../components/Layout";
 import EventCard from "../../components/EventCard";
 import { colors, typography, radius } from "../../styles/theme";
 import events from "../../content/events.json";
+import { filterAndSortEvents, getEventCategories } from "../../content/selectors";
 
 const CATEGORY_ORDER = [
   "Webinar",
@@ -81,7 +82,7 @@ function BackArrow() {
 }
 
 // ── Filtros de categoría ────────────────────────────────────
-function CategoryFilter({ allCategories, selected, onChange }) {
+function CategoryFilter({ allCategories, selected, onChange, total, countByCategory }) {
   return (
     <div style={{ marginBottom: "24px", display: "flex", flexWrap: "wrap", gap: "8px" }}>
       <button
@@ -107,11 +108,11 @@ function CategoryFilter({ allCategories, selected, onChange }) {
           e.currentTarget.style.backgroundColor = selected === null ? colors.primary : colors.surface;
         }}
       >
-        Todos ({events.length})
+        Todos ({total})
       </button>
 
       {allCategories.map((category) => {
-        const count = events.filter((e) => e.category === category).length;
+        const count = countByCategory.get(category) || 0;
         return (
           <button
             key={category}
@@ -152,19 +153,20 @@ export default function EventsPage({ setPage }) {
 
   // Obtener categorías en orden
   const categories = useMemo(() => {
-    return CATEGORY_ORDER.filter((cat) => events.some((e) => e.category === cat));
+    return getEventCategories(events, CATEGORY_ORDER);
+  }, []);
+
+  const countByCategory = useMemo(() => {
+    const counts = new Map();
+    events.forEach((event) => {
+      counts.set(event.category, (counts.get(event.category) || 0) + 1);
+    });
+    return counts;
   }, []);
 
   // Filtrar y ordenar eventos por fecha
   const filteredEvents = useMemo(() => {
-    let filtered = events;
-
-    if (selectedCategory) {
-      filtered = filtered.filter((e) => e.category === selectedCategory);
-    }
-
-    // Ordenar por fecha ascendente (próximos eventos primero)
-    return filtered.sort((a, b) => new Date(a.date) - new Date(b.date));
+    return filterAndSortEvents(events, { selectedCategory });
   }, [selectedCategory]);
 
   const handleRegister = () => {};
@@ -182,7 +184,13 @@ export default function EventsPage({ setPage }) {
           subtitle="Participa en webinars, talleres y conferencias sobre firma digital y transformación de procesos."
         />
 
-        <CategoryFilter allCategories={categories} selected={selectedCategory} onChange={setSelectedCategory} />
+        <CategoryFilter
+          allCategories={categories}
+          selected={selectedCategory}
+          onChange={setSelectedCategory}
+          total={events.length}
+          countByCategory={countByCategory}
+        />
 
         <div
           style={{

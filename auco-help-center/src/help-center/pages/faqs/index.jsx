@@ -14,6 +14,7 @@ import SearchBar from "../../components/SearchBar";
 import { colors, typography, radius, styles } from "../../styles/theme";
 import faqs from "../../content/faqs.json";
 import { normalizeText } from "../../utils/search";
+import { filterFaqs } from "../../content/selectors";
 
 // ── Cabecera de sección reutilizable ─────────────────────────
 function PageHeader({ title, subtitle }) {
@@ -61,13 +62,9 @@ export default function FAQsPage({ setPage, initialSearch, clearSelection }) {
 
   // Aplica filtro de categoría y búsqueda simultáneamente
   const filtered = useMemo(() => {
-    return faqs.filter((f) => {
-      const matchesCategory = activeCategory === "Todos" || f.category === activeCategory;
-      const matchesSearch =
-        !normalizedSearch ||
-        normalizeText(f.question).includes(normalizedSearch) ||
-        normalizeText(f.answer).includes(normalizedSearch);
-      return matchesCategory && matchesSearch;
+    return filterFaqs(faqs, {
+      search: normalizedSearch,
+      activeCategory,
     });
   }, [activeCategory, normalizedSearch]);
 
