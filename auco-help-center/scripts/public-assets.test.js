@@ -9,7 +9,7 @@ function basePayload() {
           {
             step_number: 1,
             action: "Paso 1",
-            image: "/Cómo agregar un usuario a tu organización/PASO 1.png",
+            image: "/como-agregar-usuario-organizacion/step-1.png",
             imageAlt: "Paso 1",
           },
         ],
@@ -17,7 +17,7 @@ function basePayload() {
     ],
     documents: [
       {
-        url: "/Documentos Legales/Auco vs Docusign.pdf",
+        url: "/legal-docs/auco-vs-docusign.pdf",
       },
     ],
   };

@@ -176,32 +176,6 @@ npm run smoke:ci           # Build + smoke (como en CI)
 npm run check
 ```
 
-## ✅ Fases Completadas
-
-### Fase 1: Navegación y Deep-linking
-- ✅ React Router con URLs reales
-- ✅ Deep-linking para procesos, FAQs, videos
-- ✅ Fallback de ruta desconocida
-- ✅ Tests de historial (back/forward)
-
-### Fase 2: Validación Tipada
-- ✅ Zod schemas para todos los contenidos
-- ✅ Validaciones de unicidad y secuencialidad
-- ✅ Capa `content/selectors.js` centralizada
-- ✅ Tests de schemas y datos
-
-### Fase 3: Escalabilidad UI
-- ✅ Tokens semánticos (`semanticColors`)
-- ✅ Componente helpers (`getBackButtonStyle`, `getPillButtonStyle`, etc.)
-- ✅ Reutilización de variantes en todas las páginas
-- ✅ Consistencia visual mejorada
-
-### Fase 4: Calidad y Observabilidad
-- ✅ Tests en páginas faltantes (FAQs, Events, Processes list)
-- ✅ URL regression tests (`/processes`, `/events`, `/documents`)
-- ✅ Smoke navigation test + CI integration
-- ✅ SLO definido: **p95 búsqueda local ≤ 120ms**
-
 ## 📈 Métricas Actuales
 
 - **Tests:** 33/33 pasando (100%)
@@ -247,12 +221,6 @@ Si un archivo no cumple una de estas condiciones, se debe mover o eliminar:
 2. Se sirve directamente al usuario final.
 3. Es necesario para despliegue o navegación real.
 
-### Mejora recomendada
-
-- Mantener un inventario de assets usados por cada proceso/documento.
-- Validar en CI que cada `url` de contenido exista en `public/`.
-- Separar en subcarpetas consistentes por dominio funcional si crece el volumen.
-
 ## 🔧 Desarrollo
 
 ```bash
@@ -297,7 +265,6 @@ git push origin feat/mi-rama
 ## 📚 Referencias
 
 - [ARCHITECTURE.md](ARCHITECTURE.md) — Reglas de diseño y convenciones
-- [IMPROVEMENT_PLAN.md](IMPROVEMENT_PLAN.md) — Roadmap de futuras mejoras
 - [Zod Docs](https://zod.dev)
 - [React Router Docs](https://reactrouter.com)
 - [Vitest Docs](https://vitest.dev)
@@ -305,5 +272,5 @@ git push origin feat/mi-rama
 ---
 
 **Última actualización:** 15/04/2026  
-**Estado:** ✅ Production-ready (Fase 4 completa)
+**Estado:** ✅ Production-ready
 

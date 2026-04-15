@@ -17,7 +17,7 @@ describe("DocumentsPage", () => {
     const documentCard = screen.getByRole("button", { name: /Auco vs DocuSign/i });
     fireEvent.click(documentCard);
 
-    expect(window.open).toHaveBeenCalledWith("/Documentos Legales/Auco vs Docusign.pdf", "_blank", "noopener,noreferrer");
+    expect(window.open).toHaveBeenCalledWith("/legal-docs/auco-vs-docusign.pdf", "_blank", "noopener,noreferrer");
   });
 
   it("descarga un documento legal desde el boton secundario", () => {
@@ -41,7 +41,7 @@ describe("DocumentsPage", () => {
 
     expect(createElementSpy).toHaveBeenCalledWith("a");
     expect(anchorElement).not.toBeNull();
-    expect(anchorElement.href).toContain("/Documentos%20Legales/Auco%20vs%20Docusign.pdf");
+    expect(anchorElement.href).toContain("/legal-docs/auco-vs-docusign.pdf");
     expect(anchorElement.click).toHaveBeenCalled();
 
     createElementSpy.mockRestore();

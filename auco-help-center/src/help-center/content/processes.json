@@ -7,10 +7,10 @@
     "description": "Sigue estos pasos para invitar a un nuevo usuario a tu organización en Auco.",
     "tip": "Antes de iniciar el proceso debes tener presente que esto solo se podrá realizar si estás en la cuenta administradora.",
     "steps": [
-      { "step_number": 1, "action": "Ve al menú en la parte izquierda de la pantalla y haz clic en donde se muestra.", "image": "/Cómo agregar un usuario a tu organización/PASO 1.png", "imageAlt": "Menú lateral con acceso al perfil para gestionar organización" },
-      { "step_number": 2, "action": "Te abrirá la siguiente pantalla, asegúrate de darle clic a 'Organización'.", "image": "/Cómo agregar un usuario a tu organización/PSO 2.png", "imageAlt": "Pantalla de configuración con pestaña Organización" },
-      { "step_number": 3, "action": "Dale clic al botón 'Invitar usuario'. Debes tener en cuenta que el usuario al que invites debe tener una cuenta previamente creada en Auco, de lo contrario la invitación se invalidará.", "image": "/Cómo agregar un usuario a tu organización/PASO 3.png", "imageAlt": "Botón Invitar usuario en la sección de organización" },
-      { "step_number": 4, "action": "Escribes el correo del usuario y le das al botón 'Enviar invitación'. Al usuario le llegará la invitación a su correo electrónico y cuando inicie sesión en su cuenta de Auco le aparecerá el mensaje de invitación.", "image": "/Cómo agregar un usuario a tu organización/PASO 4.png", "imageAlt": "Formulario de invitación con correo y botón Enviar invitación" }
+      { "step_number": 1, "action": "Ve al menú en la parte izquierda de la pantalla y haz clic en donde se muestra.", "image": "/como-agregar-usuario-organizacion/step-1.png", "imageAlt": "Menú lateral con acceso al perfil para gestionar organización" },
+      { "step_number": 2, "action": "Te abrirá la siguiente pantalla, asegúrate de darle clic a 'Organización'.", "image": "/como-agregar-usuario-organizacion/step-2.png", "imageAlt": "Pantalla de configuración con pestaña Organización" },
+      { "step_number": 3, "action": "Dale clic al botón 'Invitar usuario'. Debes tener en cuenta que el usuario al que invites debe tener una cuenta previamente creada en Auco, de lo contrario la invitación se invalidará.", "image": "/como-agregar-usuario-organizacion/step-3.png", "imageAlt": "Botón Invitar usuario en la sección de organización" },
+      { "step_number": 4, "action": "Escribes el correo del usuario y le das al botón 'Enviar invitación'. Al usuario le llegará la invitación a su correo electrónico y cuando inicie sesión en su cuenta de Auco le aparecerá el mensaje de invitación.", "image": "/como-agregar-usuario-organizacion/step-4.png", "imageAlt": "Formulario de invitación con correo y botón Enviar invitación" }
     ]
   },
   {
@@ -21,9 +21,9 @@
     "description": "Si un firmante no ha completado el proceso, puedes enviarle un recordatorio directamente desde la plataforma.",
     "tip": "Nota: recuerda que si vas a enviar un recordatorio cuando seleccionaste el método de envío del documento por WhatsApp, el recordatorio luego de haber pasado 24 horas desde la creación del documento llegará vía correo electrónico.",
     "steps": [
-      { "step_number": 1, "action": "Te diriges a la sección 'Mis documentos' y buscas el documento.", "image": "/Cómo enviar un recordatorio manual/paso 1.png", "imageAlt": "Sección Mis documentos con el documento a recordar" },
-      { "step_number": 2, "action": "Haces clic sobre él y se desplegará lo siguiente; busca el icono de campana.", "image": "/Cómo enviar un recordatorio manual/paso 2.png", "imageAlt": "Detalle del documento con el icono de campana para enviar recordatorio" },
-      { "step_number": 3, "action": "Una vez hagas clic sobre el icono tendrás el siguiente mensaje.", "image": "/Cómo enviar un recordatorio manual/paso 3.png", "imageAlt": "Mensaje de confirmación de recordatorio enviado" }
+      { "step_number": 1, "action": "Te diriges a la sección 'Mis documentos' y buscas el documento.", "image": "/enviar-recordatorio-manual/step-1.png", "imageAlt": "Sección Mis documentos con el documento a recordar" },
+      { "step_number": 2, "action": "Haces clic sobre él y se desplegará lo siguiente; busca el icono de campana.", "image": "/enviar-recordatorio-manual/step-2.png", "imageAlt": "Detalle del documento con el icono de campana para enviar recordatorio" },
+      { "step_number": 3, "action": "Una vez hagas clic sobre el icono tendrás el siguiente mensaje.", "image": "/enviar-recordatorio-manual/step-3.png", "imageAlt": "Mensaje de confirmación de recordatorio enviado" }
     ]
   },
   {
@@ -34,9 +34,9 @@
     "description": "Personaliza la experiencia de tus firmantes agregando el logo de tu empresa a los documentos y correos electrónicos generados por Auco.",
     "tip": "Nota: los logos deben estar en formato PNG para visualizarse correctamente.",
     "steps": [
-      { "step_number": 1, "action": "Haz clic en perfil.", "image": "/Cómo poner mi logo en documentos y emails/paso 1.png", "imageAlt": "Menú de perfil para iniciar la configuración de logos" },
-      { "step_number": 2, "action": "Se abrirá la siguiente ventana; debes darle clic a la opción 'Opciones de desarrollo'.", "image": "/Cómo poner mi logo en documentos y emails/paso 2.png", "imageAlt": "Ventana de perfil con la opción Opciones de desarrollo" },
-      { "step_number": 3, "action": "En donde dice 'Logotipos personalizados' cargarás el logo que deseas que quede visualmente visible en los documentos. En donde dice 'Logotipo mailing' cargarás el logo que deseas que quede visible en los correos electrónicos. Nota: los logos deben estar en formato PNG.", "image": "/Cómo poner mi logo en documentos y emails/paso 3.png", "imageAlt": "Sección para cargar Logotipos personalizados y Logotipo mailing" }
+      { "step_number": 1, "action": "Haz clic en perfil.", "image": "/logo-documentos-emails/step-1.png", "imageAlt": "Menú de perfil para iniciar la configuración de logos" },
+      { "step_number": 2, "action": "Se abrirá la siguiente ventana; debes darle clic a la opción 'Opciones de desarrollo'.", "image": "/logo-documentos-emails/step-2.png", "imageAlt": "Ventana de perfil con la opción Opciones de desarrollo" },
+      { "step_number": 3, "action": "En donde dice 'Logotipos personalizados' cargarás el logo que deseas que quede visualmente visible en los documentos. En donde dice 'Logotipo mailing' cargarás el logo que deseas que quede visible en los correos electrónicos. Nota: los logos deben estar en formato PNG.", "image": "/logo-documentos-emails/step-3.png", "imageAlt": "Sección para cargar Logotipos personalizados y Logotipo mailing" }
     ]
   },
   {
@@ -47,9 +47,9 @@
     "description": "Si un participante rechaza el documento, puedes volver a activar el proceso sin necesidad de crear uno nuevo.",
     "tip": "Al reactivar el proceso, el firmante que lo había rechazado podrá intentar firmarlo nuevamente.",
     "steps": [
-      { "step_number": 1, "action": "Te diriges a la sección 'Mis documentos' y buscas el proceso que fue rechazado.", "image": "/Cómo reactivar un proceso rechazado por un firmante/PASO 1.png", "imageAlt": "Listado de Mis documentos con un proceso en estado rechazado" },
-      { "step_number": 2, "action": "Das clic sobre el documento y se desplegará la información del mismo; das clic en los 3 puntos señalados y en el botón 'Activar proceso'.", "image": "/Cómo reactivar un proceso rechazado por un firmante/PASO 2.png", "imageAlt": "Panel de detalle del documento con menú de tres puntos y opción Activar proceso" },
-      { "step_number": 3, "action": "El proceso quedará activo nuevamente y el firmante que había rechazado el proceso podrá volver a intentar firmar el mismo.", "image": "/Cómo reactivar un proceso rechazado por un firmante/PASO 3.png", "imageAlt": "Confirmación visual de proceso reactivado para volver a firmar" }
+      { "step_number": 1, "action": "Te diriges a la sección 'Mis documentos' y buscas el proceso que fue rechazado.", "image": "/reactivar-proceso-rechazado/step-1.png", "imageAlt": "Listado de Mis documentos con un proceso en estado rechazado" },
+      { "step_number": 2, "action": "Das clic sobre el documento y se desplegará la información del mismo; das clic en los 3 puntos señalados y en el botón 'Activar proceso'.", "image": "/reactivar-proceso-rechazado/step-2.png", "imageAlt": "Panel de detalle del documento con menú de tres puntos y opción Activar proceso" },
+      { "step_number": 3, "action": "El proceso quedará activo nuevamente y el firmante que había rechazado el proceso podrá volver a intentar firmar el mismo.", "image": "/reactivar-proceso-rechazado/step-3.png", "imageAlt": "Confirmación visual de proceso reactivado para volver a firmar" }
     ]
   },
   {
@@ -60,12 +60,12 @@
     "description": "Pasos iniciales para registrarte y empezar a usar la plataforma de Auco.",
     "tip": "El código de verificación puede tardar unos minutos en llegar. Revisa tu carpeta de spam si no lo ves en tu bandeja de entrada principal.",
     "steps": [
-      { "step_number": 1, "action": "Ingresa a la página web: https://www.auco.ai/ y haz clic en el botón azul 'Crear Cuenta' en la esquina superior derecha.", "image": "/Cómo crear tu cuenta en Auco/PASO 1.png", "imageAlt": "Botón Crear Cuenta en la página principal de Auco" },
-      { "step_number": 2, "action": "Diligencia el formulario con tu nombre completo, correo electrónico, número de celular y contraseña. Haz clic en 'Regístrate'.", "image": "/Cómo crear tu cuenta en Auco/PASO2.png", "imageAlt": "Formulario de registro con datos de usuario" },
-      { "step_number": 3, "action": "Ve a tu correo electrónico, busca el mensaje de Auco con tu código de verificación de 6 dígitos.", "image": "/Cómo crear tu cuenta en Auco/PASO 3.png", "imageAlt": "Correo de Auco con código de verificación" },
-      { "step_number": 4, "action": "Responde las preguntas de usabilidad ('Uso empresarial' o 'Uso personal') y haz clic en 'Continuar'.", "image": "/Cómo crear tu cuenta en Auco/PASO 4.png", "imageAlt": "Selección de tipo de uso empresarial o personal" },
-      { "step_number": 5, "action": "Aparecerá un mensaje de 'Registro completado'. Haz clic en 'Ir al dashboard' para acceder a tu nueva cuenta.", "image": "/Cómo crear tu cuenta en Auco/PASO 5.png", "imageAlt": "Confirmación de registro completado" },
-      { "step_number": 6, "action": "Verifica que ingresaste correctamente al dashboard y que tu cuenta quedó activa para comenzar a usar Auco.", "image": "/Cómo crear tu cuenta en Auco/PASO 6.png", "imageAlt": "Dashboard inicial de Auco después del registro" }
+      { "step_number": 1, "action": "Ingresa a la página web: https://www.auco.ai/ y haz clic en el botón azul 'Crear Cuenta' en la esquina superior derecha.", "image": "/crear-cuenta-auco/step-1.png", "imageAlt": "Botón Crear Cuenta en la página principal de Auco" },
+      { "step_number": 2, "action": "Diligencia el formulario con tu nombre completo, correo electrónico, número de celular y contraseña. Haz clic en 'Regístrate'.", "image": "/crear-cuenta-auco/step-2.png", "imageAlt": "Formulario de registro con datos de usuario" },
+      { "step_number": 3, "action": "Ve a tu correo electrónico, busca el mensaje de Auco con tu código de verificación de 6 dígitos.", "image": "/crear-cuenta-auco/step-3.png", "imageAlt": "Correo de Auco con código de verificación" },
+      { "step_number": 4, "action": "Responde las preguntas de usabilidad ('Uso empresarial' o 'Uso personal') y haz clic en 'Continuar'.", "image": "/crear-cuenta-auco/step-4.png", "imageAlt": "Selección de tipo de uso empresarial o personal" },
+      { "step_number": 5, "action": "Aparecerá un mensaje de 'Registro completado'. Haz clic en 'Ir al dashboard' para acceder a tu nueva cuenta.", "image": "/crear-cuenta-auco/step-5.png", "imageAlt": "Confirmación de registro completado" },
+      { "step_number": 6, "action": "Verifica que ingresaste correctamente al dashboard y que tu cuenta quedó activa para comenzar a usar Auco.", "image": "/crear-cuenta-auco/step-6.png", "imageAlt": "Dashboard inicial de Auco después del registro" }
     ]
   },
   {
@@ -82,11 +82,11 @@
       { "step_number": 4, "action": "Registra el [webhook de Auco](https://webhook.auco.ai/) para procesar los mensajes entrantes. Usa el token de verificación proporcionado por el equipo de desarrollo de Auco. Referencia de Webhooks en Meta: [Configurar Webhooks](https://developers.facebook.com/docs/graph-api/webhooks/getting-started#configure-webhooks-product)." },
       { "step_number": 5, "action": "Genera un token permanente (Permanent Access Token) para la integración de WhatsApp Cloud API. Referencia: [cómo obtener un token permanente](https://www.youtube.com/watch?v=gqiBzFlF44c)." },
       { "step_number": 6, "action": "Almacena el token permanente de forma segura y compártelo con el equipo de Auco para finalizar la conexión técnica." },
-      { "step_number": 7, "action": "En Meta Business, crea cuatro plantillas de WhatsApp para la operación. Selecciona tipo 'Servicio' e idioma 'Spanish'. Accede desde [Meta Business](https://business.facebook.com/) y usa esta [base de plantillas](https://docs.google.com/spreadsheets/d/1VyIjhEL6nyGrm8yrF-DM-uAO_t4A6C0kwTu_91nFYWE/edit?usp=sharing).", "image": "/Cómo obtener lineas comerciales/PASO 1.png", "imageAlt": "Configuración de tipo Servicio e idioma Spanish al crear plantilla de WhatsApp" },
-      { "step_number": 8, "action": "Cuando una plantilla requiera botones de respuesta, usa 'Añadir un botón > Personalizado' y define el texto de cada botón.", "image": "/Cómo obtener lineas comerciales/PASO 2.png", "imageAlt": "Creación de botones personalizados en plantilla de WhatsApp" },
-      { "step_number": 9, "action": "Para plantillas de términos y condiciones, usa 'Añadir un botón > Ir al sitio web' y completa texto del botón y URL de destino.", "image": "/Cómo obtener lineas comerciales/PASO 3.png", "imageAlt": "Configuración de botón de sitio web en plantilla de WhatsApp" },
-      { "step_number": 10, "action": "Si la plantilla requiere encabezado de documento, selecciona 'Encabezado > Contenido multimedia > Documento' y carga un PDF de ejemplo para enviar a aprobación.", "image": "/Cómo obtener lineas comerciales/PASO 4.png", "imageAlt": "Configuración de encabezado tipo documento en plantilla de WhatsApp" },
-      { "step_number": 11, "action": "Verifica el contenido final de cada plantilla y espera su aprobación (puede tardar hasta 24 horas) antes de iniciar operación en producción.", "image": "/Cómo obtener lineas comerciales/PASO 5.png", "imageAlt": "Revisión final del contenido de plantillas antes de aprobación" }
+      { "step_number": 7, "action": "En Meta Business, crea cuatro plantillas de WhatsApp para la operación. Selecciona tipo 'Servicio' e idioma 'Spanish'. Accede desde [Meta Business](https://business.facebook.com/) y usa esta [base de plantillas](https://docs.google.com/spreadsheets/d/1VyIjhEL6nyGrm8yrF-DM-uAO_t4A6C0kwTu_91nFYWE/edit?usp=sharing).", "image": "/obtener-lineas-comerciales/step-1.png", "imageAlt": "Configuración de tipo Servicio e idioma Spanish al crear plantilla de WhatsApp" },
+      { "step_number": 8, "action": "Cuando una plantilla requiera botones de respuesta, usa 'Añadir un botón > Personalizado' y define el texto de cada botón.", "image": "/obtener-lineas-comerciales/step-2.png", "imageAlt": "Creación de botones personalizados en plantilla de WhatsApp" },
+      { "step_number": 9, "action": "Para plantillas de términos y condiciones, usa 'Añadir un botón > Ir al sitio web' y completa texto del botón y URL de destino.", "image": "/obtener-lineas-comerciales/step-3.png", "imageAlt": "Configuración de botón de sitio web en plantilla de WhatsApp" },
+      { "step_number": 10, "action": "Si la plantilla requiere encabezado de documento, selecciona 'Encabezado > Contenido multimedia > Documento' y carga un PDF de ejemplo para enviar a aprobación.", "image": "/obtener-lineas-comerciales/step-4.png", "imageAlt": "Configuración de encabezado tipo documento en plantilla de WhatsApp" },
+      { "step_number": 11, "action": "Verifica el contenido final de cada plantilla y espera su aprobación (puede tardar hasta 24 horas) antes de iniciar operación en producción.", "image": "/obtener-lineas-comerciales/step-5.png", "imageAlt": "Revisión final del contenido de plantillas antes de aprobación" }
     ]
   }
 ]

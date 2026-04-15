@@ -62,7 +62,7 @@ describe("Help Center App", () => {
     const documentResult = screen.getByRole("button", { name: /Auco vs DocuSign/i });
     fireEvent.click(documentResult);
 
-    expect(window.open).toHaveBeenCalledWith("/Documentos Legales/Auco vs Docusign.pdf", "_blank", "noopener,noreferrer");
+    expect(window.open).toHaveBeenCalledWith("/legal-docs/auco-vs-docusign.pdf", "_blank", "noopener,noreferrer");
   });
 
   it("resuelve deep-link a detalle de proceso por slug", () => {
