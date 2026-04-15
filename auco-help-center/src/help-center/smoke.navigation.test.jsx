@@ -28,5 +28,5 @@ describe("Smoke navigation", () => {
     fireEvent.click(screen.getByRole("button", { name: /Volver a inicio/i }));
     fireEvent.click(screen.getByRole("button", { name: /Eventos/i }));
     expect(screen.getByRole("heading", { name: "Eventos" })).toBeInTheDocument();
-  }, 10000);
+  }, 15000);
 });

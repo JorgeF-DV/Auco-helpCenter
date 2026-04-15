@@ -222,6 +222,37 @@ Configuración:
 - `public/_headers` (Netlify headers)
 - `.github/workflows/ci.yml` (CI/CD)
 
+## 📁 Gestión de `public/`
+
+`public/` no es un cajón de archivos genéricos. Solo debe contener recursos que el navegador necesita resolver por URL directa en tiempo de ejecución.
+
+### Debe permanecer en `public/`
+
+- Imágenes y documentos que aparecen en procesos o fichas de contenido.
+- Recursos enlazados desde `processes.json` y `documents.json`.
+- Archivos de despliegue estático como `_headers` y `_redirects`.
+- Branding estático que se usa en la app, por ejemplo `auco_logo.png`.
+
+### No debe permanecer en `public/`
+
+- `coverage/` y otros artefactos generados por build o test.
+- Borradores históricos de PRs o documentación temporal.
+- Assets de ejemplo que no estén referenciados por la app.
+
+### Criterio práctico
+
+Si un archivo no cumple una de estas condiciones, se debe mover o eliminar:
+
+1. Está referenciado por contenido JSON, HTML o configuración de runtime.
+2. Se sirve directamente al usuario final.
+3. Es necesario para despliegue o navegación real.
+
+### Mejora recomendada
+
+- Mantener un inventario de assets usados por cada proceso/documento.
+- Validar en CI que cada `url` de contenido exista en `public/`.
+- Separar en subcarpetas consistentes por dominio funcional si crece el volumen.
+
 ## 🔧 Desarrollo
 
 ```bash

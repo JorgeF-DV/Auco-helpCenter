@@ -1,6 +1,7 @@
 import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { validateHelpCenterContentData } from "../src/help-center/content/validateContentData.js";
+import { validateReferencedPublicAssets } from "./public-assets.js";
 
 async function readJson(relativePath) {
   const absolutePath = resolve(process.cwd(), relativePath);
@@ -18,6 +19,7 @@ async function main() {
   ]);
 
   validateHelpCenterContentData({ faqs, videos, processes, documents, events });
+  validateReferencedPublicAssets({ processes, documents });
   console.log("[HelpCenterContent] OK");
 }
 
