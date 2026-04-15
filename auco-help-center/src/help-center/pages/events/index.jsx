@@ -87,7 +87,7 @@ function CategoryFilter({ allCategories, selected, onChange }) {
       <button
         onClick={() => onChange(null)}
         style={{
-          backgroundColor: selected === null ? colors.primary : colors.backgroundSecondary,
+          backgroundColor: selected === null ? colors.primary : colors.surface,
           color: selected === null ? "white" : colors.text,
           border: "none",
           borderRadius: radius.full,
@@ -100,11 +100,11 @@ function CategoryFilter({ allCategories, selected, onChange }) {
         }}
         onMouseEnter={(e) => {
           if (selected !== null) {
-            e.currentTarget.style.backgroundColor = colors.borderLight;
+            e.currentTarget.style.backgroundColor = colors.border;
           }
         }}
         onMouseLeave={(e) => {
-          e.currentTarget.style.backgroundColor = selected === null ? colors.primary : colors.backgroundSecondary;
+          e.currentTarget.style.backgroundColor = selected === null ? colors.primary : colors.surface;
         }}
       >
         Todos ({events.length})
@@ -117,7 +117,7 @@ function CategoryFilter({ allCategories, selected, onChange }) {
             key={category}
             onClick={() => onChange(category)}
             style={{
-              backgroundColor: selected === category ? colors.primary : colors.backgroundSecondary,
+              backgroundColor: selected === category ? colors.primary : colors.surface,
               color: selected === category ? "white" : colors.text,
               border: "none",
               borderRadius: radius.full,
@@ -130,12 +130,12 @@ function CategoryFilter({ allCategories, selected, onChange }) {
             }}
             onMouseEnter={(e) => {
               if (selected !== category) {
-                e.currentTarget.style.backgroundColor = colors.borderLight;
+                e.currentTarget.style.backgroundColor = colors.border;
               }
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.backgroundColor =
-                selected === category ? colors.primary : colors.backgroundSecondary;
+                selected === category ? colors.primary : colors.surface;
             }}
           >
             {category} ({count})
@@ -170,7 +170,7 @@ export default function EventsPage({ setPage }) {
   const handleRegister = () => {};
 
   return (
-    <Layout>
+    <Layout onNavigate={setPage}>
       <div style={{ maxWidth: "900px", margin: "0 auto", padding: "40px 20px" }}>
         <button onClick={() => setPage("home")} style={backButtonStyle} aria-label="Volver al inicio">
           <BackArrow />

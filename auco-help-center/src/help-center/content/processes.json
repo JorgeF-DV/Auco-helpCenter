@@ -67,5 +67,26 @@
       { "step_number": 5, "action": "Aparecerá un mensaje de 'Registro completado'. Haz clic en 'Ir al dashboard' para acceder a tu nueva cuenta.", "image": "/Cómo crear tu cuenta en Auco/PASO 5.png", "imageAlt": "Confirmación de registro completado" },
       { "step_number": 6, "action": "Verifica que ingresaste correctamente al dashboard y que tu cuenta quedó activa para comenzar a usar Auco.", "image": "/Cómo crear tu cuenta en Auco/PASO 6.png", "imageAlt": "Dashboard inicial de Auco después del registro" }
     ]
+  },
+  {
+    "slug": "obtener-lineas-comerciales-whatsapp",
+    "category": "Integraciones",
+    "number": 6,
+    "title": "Cómo obtener líneas comerciales de WhatsApp",
+    "description": "Configura una línea de WhatsApp Cloud API para uso comercial en Auco, incluyendo webhook, token y plantillas.",
+    "tip": "Este proceso requiere acceso a Facebook Business y Facebook Developers. Solicita al equipo de Auco el token de verificación del webhook antes de iniciar ese paso.",
+    "steps": [
+      { "step_number": 1, "action": "Configura los recursos de desarrollador y habilita Cloud API de WhatsApp siguiendo la [guía oficial de Meta](https://developers.facebook.com/docs/whatsapp/cloud-api/get-started#set-up-developer-assets)." },
+      { "step_number": 2, "action": "Activa una línea de WhatsApp personalizada para la plataforma. La línea no debe estar asociada a otro WhatsApp activo; si lo está, debes desvincularla primero. Guía de referencia: [Agregar número de teléfono](https://developers.facebook.com/docs/whatsapp/cloud-api/get-started/add-a-phone-number)." },
+      { "step_number": 3, "action": "Guarda el identificador del número de teléfono y el identificador de la cuenta de WhatsApp Business (WABA ID), y compártelos con el equipo de Auco." },
+      { "step_number": 4, "action": "Registra el [webhook de Auco](https://webhook.auco.ai/) para procesar los mensajes entrantes. Usa el token de verificación proporcionado por el equipo de desarrollo de Auco. Referencia de Webhooks en Meta: [Configurar Webhooks](https://developers.facebook.com/docs/graph-api/webhooks/getting-started#configure-webhooks-product)." },
+      { "step_number": 5, "action": "Genera un token permanente (Permanent Access Token) para la integración de WhatsApp Cloud API. Referencia: [cómo obtener un token permanente](https://www.youtube.com/watch?v=gqiBzFlF44c)." },
+      { "step_number": 6, "action": "Almacena el token permanente de forma segura y compártelo con el equipo de Auco para finalizar la conexión técnica." },
+      { "step_number": 7, "action": "En Meta Business, crea cuatro plantillas de WhatsApp para la operación. Selecciona tipo 'Servicio' e idioma 'Spanish'. Accede desde [Meta Business](https://business.facebook.com/) y usa esta [base de plantillas](https://docs.google.com/spreadsheets/d/1VyIjhEL6nyGrm8yrF-DM-uAO_t4A6C0kwTu_91nFYWE/edit?usp=sharing).", "image": "/Cómo obtener lineas comerciales/PASO 1.png", "imageAlt": "Configuración de tipo Servicio e idioma Spanish al crear plantilla de WhatsApp" },
+      { "step_number": 8, "action": "Cuando una plantilla requiera botones de respuesta, usa 'Añadir un botón > Personalizado' y define el texto de cada botón.", "image": "/Cómo obtener lineas comerciales/PASO 2.png", "imageAlt": "Creación de botones personalizados en plantilla de WhatsApp" },
+      { "step_number": 9, "action": "Para plantillas de términos y condiciones, usa 'Añadir un botón > Ir al sitio web' y completa texto del botón y URL de destino.", "image": "/Cómo obtener lineas comerciales/PASO 3.png", "imageAlt": "Configuración de botón de sitio web en plantilla de WhatsApp" },
+      { "step_number": 10, "action": "Si la plantilla requiere encabezado de documento, selecciona 'Encabezado > Contenido multimedia > Documento' y carga un PDF de ejemplo para enviar a aprobación.", "image": "/Cómo obtener lineas comerciales/PASO 4.png", "imageAlt": "Configuración de encabezado tipo documento en plantilla de WhatsApp" },
+      { "step_number": 11, "action": "Verifica el contenido final de cada plantilla y espera su aprobación (puede tardar hasta 24 horas) antes de iniciar operación en producción.", "image": "/Cómo obtener lineas comerciales/PASO 5.png", "imageAlt": "Revisión final del contenido de plantillas antes de aprobación" }
+    ]
   }
 ]

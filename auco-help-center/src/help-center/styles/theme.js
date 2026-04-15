@@ -5,8 +5,8 @@
 // ─────────────────────────────────────────────────────────────
 
 export const colors = {
-  dark:       "#021C30",
-  primary:    "#021C30",
+  dark:       "#001A4D",
+  primary:    "#001A4D",
   success:    "#22C55E",
   surface:    "#F8FAFC",
   white:      "#FFFFFF",
@@ -14,7 +14,7 @@ export const colors = {
   text:       "#1E293B",
   textMuted:  "#64748B",
   textLight:  "#94A3B8",
-  primaryBg:  "rgba(2, 28, 48, 0.1)",
+  primaryBg:  "rgba(0, 26, 77, 0.1)",
   successBg:  "#F0FDF4",
   warnBg:     "#FFFBEB",
   warnText:   "#92400E",
@@ -47,7 +47,7 @@ export const shadows = {
   sm:   "0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04)",
   md:   "0 4px 12px rgba(0,0,0,0.08)",
   lg:   "0 8px 24px rgba(0,0,0,0.1)",
-  blue: "0 4px 16px rgba(2,28,48,0.15)",
+  blue: "0 4px 16px rgba(0,26,77,0.15)",
 };
 
 export const styles = {
