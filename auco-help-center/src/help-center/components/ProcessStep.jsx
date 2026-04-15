@@ -50,7 +50,7 @@ export default function ProcessStep({ number, action, image, imageAlt, tip, isLa
             fontWeight: typography.bold,
             fontSize: typography.sm,
             flexShrink: 0,
-            boxShadow: "0 4px 10px rgba(3,74,166,0.25)",
+            boxShadow: "0 4px 10px rgba(2,28,48,0.25)",
             fontFamily: typography.fontFamily,
           }}
         >

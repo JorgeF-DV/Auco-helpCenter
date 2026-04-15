@@ -247,7 +247,7 @@ export default function EventCard({
           transition: "all 0.2s ease-in-out",
         }}
         onMouseEnter={(e) => {
-          e.currentTarget.style.backgroundColor = "#0056b3";
+          e.currentTarget.style.backgroundColor = "#021C30";
           e.currentTarget.style.transform = "translateY(-1px)";
         }}
         onMouseLeave={(e) => {
