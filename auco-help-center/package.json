@@ -14,6 +14,7 @@
     "smoke:ci": "npm run build && npm run test:smoke",
     "preview": "vite preview",
     "check:content": "node scripts/check-content.mjs",
+    "check:ci": "npm run lint && npm run check:content",
     "check": "npm run lint && npm run check:content && npm run build && npm run test:run"
   },
   "dependencies": {

@@ -28,7 +28,7 @@ jobs:
         run: npm run smoke:ci
 
       - name: Run quality gate
-        run: npm run check
+        run: npm run check:ci
 
       - name: Run coverage
         run: npm run test:coverage

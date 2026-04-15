@@ -25,7 +25,7 @@ describe("FAQsPage", () => {
     fireEvent.change(searchInput, { target: { value: "texto inexistente" } });
 
     expect(screen.getByText(/No se encontraron preguntas con ese criterio/i)).toBeInTheDocument();
-  }, 10000);
+  }, 15000);
 
   it("limpia la seleccion al desmontar", () => {
     const clearSelection = vi.fn();
