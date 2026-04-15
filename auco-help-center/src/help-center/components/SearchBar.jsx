@@ -9,7 +9,7 @@
 // ─────────────────────────────────────────────────────────────
 
 import { useState } from "react";
-import { colors, typography, radius } from "../styles/theme";
+import { colors, typography, radius, semanticColors } from "../styles/theme";
 
 function SearchIcon() {
   return (
@@ -34,7 +34,6 @@ export default function SearchBar({ value, onChange, placeholder, maxWidth = "54
 
   return (
     <div style={{ position: "relative", maxWidth, width: "100%" }}>
-      {/* Ícono de lupa — posicionado absolutamente dentro del input */}
       <div
         style={{
           position: "absolute",
@@ -67,8 +66,8 @@ export default function SearchBar({ value, onChange, placeholder, maxWidth = "54
           outline: "none",
           boxSizing: "border-box",
           fontFamily: typography.fontFamily,
-          transition: "border-color 0.15s ease",
-          boxShadow: focused ? `0 0 0 3px ${colors.primary}18` : "none",
+            transition: "border-color 0.15s ease, box-shadow 0.15s ease",
+            boxShadow: focused ? `0 0 0 3px ${semanticColors.interactiveHover}` : "none",
         }}
       />
     </div>

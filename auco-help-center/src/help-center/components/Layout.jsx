@@ -1,4 +1,4 @@
-import { colors, typography } from "../styles/theme";
+import { layoutStyles } from "../styles/theme";
 
 export default function Layout({ children, onNavigate }) {
   function navigate(id) {
@@ -6,25 +6,14 @@ export default function Layout({ children, onNavigate }) {
   }
 
   return (
-    <div style={{ minHeight: "100vh", background: colors.surface, fontFamily: typography.fontFamily, display: "flex", flexDirection: "column" }}>
-      <header style={{
-        height: 60,
-        background: `linear-gradient(90deg, ${colors.dark} 0%, ${colors.primary} 100%)`,
-        display: "flex",
-        alignItems: "center",
-        padding: "0 24px",
-        justifyContent: "space-between",
-        position: "relative",
-        zIndex: 200,
-        borderBottom: "none",
-        overflow: "hidden",
-      }}>
-        <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
+    <div style={layoutStyles.shell}>
+      <header style={layoutStyles.header}>
+        <div style={layoutStyles.headerBrand}>
           <img
             src="/auco_logo.png"
             alt="Auco"
             onClick={() => navigate("home")}
-            style={{ height: 45, objectFit: "contain", cursor: "pointer", userSelect: "none", filter: "drop-shadow(0 2px 8px rgba(0,0,0,0.35))" }}
+            style={layoutStyles.headerLogo}
           />
         </div>
 
@@ -32,7 +21,7 @@ export default function Layout({ children, onNavigate }) {
           href="https://app.auco.ai"
           target="_blank"
           rel="noopener noreferrer"
-          style={{ color: colors.white, fontSize: typography.sm, textDecoration: "none", fontFamily: typography.fontFamily, fontWeight: typography.bold, display: "flex", alignItems: "center", gap: "6px", background: "rgba(255,255,255,0.12)", border: "1px solid rgba(255,255,255,0.2)", borderRadius: "999px", padding: "7px 12px", backdropFilter: "blur(2px)" }}
+          style={layoutStyles.headerLink}
         >
           Ir a la plataforma
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -44,7 +33,7 @@ export default function Layout({ children, onNavigate }) {
       </header>
 
       <div style={{ display: "flex", flex: 1, position: "relative" }}>
-        <main style={{ flex: 1, padding: "36px clamp(16px, 2vw, 28px)", maxWidth: 1680, width: "100%", boxSizing: "border-box", margin: "0 auto" }}>
+        <main style={layoutStyles.main}>
           {children}
         </main>
       </div>

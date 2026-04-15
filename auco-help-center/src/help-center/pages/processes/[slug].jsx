@@ -15,7 +15,7 @@
 
 import Layout from "../../components/Layout";
 import ProcessStep from "../../components/ProcessStep";
-import { colors, typography, radius, styles } from "../../styles/theme";
+import { colors, typography, radius, styles, getBadgeStyle, getBackButtonStyle } from "../../styles/theme";
 import processes from "../../content/processes.json";
 
 export default function ProcessDetailPage({ slug, setPage, setSelectedProcess }) {
@@ -57,9 +57,7 @@ export default function ProcessDetailPage({ slug, setPage, setSelectedProcess })
       {/* ── Botón de regreso ── */}
       <button
         onClick={() => setPage("processes")}
-        style={{
-          ...backButtonStyle,
-        }}
+        style={backButtonStyle}
       >
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
           <line x1="19" y1="12" x2="5" y2="12" />
@@ -96,13 +94,12 @@ export default function ProcessDetailPage({ slug, setPage, setSelectedProcess })
 
         {/* Badge de categoría */}
         <span
-          style={{
-            ...styles.badge,
+          style={getBadgeStyle("neutral", {
             background: "rgba(255,255,255,0.12)",
             color: "rgba(255,255,255,0.85)",
             marginBottom: "14px",
             border: "1px solid rgba(255,255,255,0.15)",
-          }}
+          })}
         >
           {process.category}
         </span>
@@ -281,23 +278,8 @@ export default function ProcessDetailPage({ slug, setPage, setSelectedProcess })
 }
 
 const backButtonStyle = {
-  display: "flex",
-  alignItems: "center",
-  gap: "8px",
-  paddingRight: "12px",
-  paddingLeft: "12px",
-  paddingTop: "8px",
-  paddingBottom: "8px",
-  marginBottom: "20px",
-  background: "transparent",
-  border: "none",
-  borderRadius: "6px",
-  cursor: "pointer",
-  fontSize: typography.sm,
-  fontWeight: typography.medium,
+  ...getBackButtonStyle(),
   color: colors.textMuted,
-  fontFamily: typography.fontFamily,
-  transition: "color 0.15s ease, background-color 0.15s ease",
 };
 
 const processNavLinkButtonStyle = {

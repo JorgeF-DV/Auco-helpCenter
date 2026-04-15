@@ -12,10 +12,9 @@
 // ─────────────────────────────────────────────────────────────
 
 import { useId, useState } from "react";
-import { colors, typography, styles } from "../styles/theme";
+import { colors, typography, shadows, getBadgeStyle, getInteractiveCardStyle } from "../styles/theme";
 import LinkifiedText from "./LinkifiedText";
 
-// Ícono SVG de chevron — reemplaza emojis por iconografía limpia
 function ChevronIcon({ isOpen }) {
   return (
     <svg
@@ -45,14 +44,20 @@ export default function FAQItem({ question, answer, category }) {
   return (
     <div
       style={{
-        ...styles.card,
-        borderColor: isOpen ? colors.primary : colors.border,
+        ...getInteractiveCardStyle({
+          hovered: isOpen,
+          accentColor: colors.primary,
+          padding: 0,
+          gap: 0,
+          cursor: "default",
+          shadow: shadows.sm,
+          hoverShadow: shadows.sm,
+          hoverTranslateY: "0",
+        }),
         marginBottom: "10px",
-        transition: "border-color 0.2s ease",
         overflow: "hidden",
       }}
     >
-      {/* ── Header del acordeón ── */}
       <button
         onClick={() => setIsOpen(!isOpen)}
         aria-expanded={isOpen}
@@ -71,19 +76,10 @@ export default function FAQItem({ question, answer, category }) {
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: "12px", flex: 1 }}>
-          {/* Badge de categoría */}
-          <span
-            style={{
-              ...styles.badge,
-              background: colors.primaryBg,
-              color: colors.primary,
-              whiteSpace: "nowrap",
-            }}
-          >
+          <span style={getBadgeStyle("primary", { whiteSpace: "nowrap" })}>
             {category}
           </span>
 
-          {/* Texto de la pregunta */}
           <span
             style={{
               color: colors.text,
@@ -100,7 +96,6 @@ export default function FAQItem({ question, answer, category }) {
         <ChevronIcon isOpen={isOpen} />
       </button>
 
-      {/* ── Cuerpo desplegable ── */}
       {isOpen && (
         <div
           id={panelId}

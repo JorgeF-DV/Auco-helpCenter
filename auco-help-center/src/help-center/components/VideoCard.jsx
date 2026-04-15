@@ -13,7 +13,7 @@
 // ─────────────────────────────────────────────────────────────
 
 import { useState } from "react";
-import { colors, typography, shadows, styles } from "../styles/theme";
+import { colors, typography, shadows, getBadgeStyle, getInteractiveCardStyle, styles } from "../styles/theme";
 
 // Ícono de play en SVG — no emoji
 function PlayIcon() {
@@ -61,15 +61,15 @@ export default function VideoCard({ title, description, youtubeId, category, dur
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{
-        ...styles.card,
-        borderColor: hovered ? colors.primary : colors.border,
-        cursor: "pointer",
-        transition: "transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease",
-        transform: hovered ? "translateY(-3px)" : "translateY(0)",
-        boxShadow: hovered ? shadows.blue : shadows.sm,
+        ...getInteractiveCardStyle({
+          hovered,
+          accentColor: colors.primary,
+          padding: 0,
+          shadow: shadows.sm,
+          hoverShadow: shadows.blue,
+          hoverTranslateY: "-3px",
+        }),
         overflow: "hidden",
-        display: "flex",
-        flexDirection: "column",
       }}
     >
       {/* ── Miniatura con overlay de play ── */}
@@ -148,11 +148,7 @@ export default function VideoCard({ title, description, youtubeId, category, dur
           }}
         >
           <span
-            style={{
-              ...styles.badge,
-              background: colors.successBg,
-              color: "#15803D",
-            }}
+            style={getBadgeStyle("success")}
           >
             {category}
           </span>

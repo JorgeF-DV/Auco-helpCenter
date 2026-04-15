@@ -21,6 +21,16 @@ export const colors = {
   warnBorder: "#F59E0B",
 };
 
+export const semanticColors = {
+  info: "#0F766E",
+  infoBg: "#ECFDF5",
+  infoBorder: "#A7F3D0",
+  accent: "#2563EB",
+  accentBg: "#EFF6FF",
+  accentBorder: "#BFDBFE",
+  interactiveHover: "rgba(0, 26, 77, 0.08)",
+};
+
 export const typography = {
   fontFamily: "'DM Sans', 'Segoe UI', system-ui, -apple-system, sans-serif",
   xs:   "11px",
@@ -87,5 +97,209 @@ export const styles = {
     borderRadius: "9999px",
     letterSpacing:"0.3px",
     display:      "inline-block",
+  },
+};
+
+export const badgeVariants = {
+  primary: {
+    background: colors.primaryBg,
+    color: colors.primary,
+    border: `1px solid ${colors.border}`,
+  },
+  success: {
+    background: colors.successBg,
+    color: "#15803D",
+    border: `1px solid transparent`,
+  },
+  warning: {
+    background: colors.warnBg,
+    color: colors.warnText,
+    border: `1px solid ${colors.warnBorder}`,
+  },
+  info: {
+    background: semanticColors.infoBg,
+    color: semanticColors.info,
+    border: `1px solid ${semanticColors.infoBorder}`,
+  },
+  accent: {
+    background: semanticColors.accentBg,
+    color: semanticColors.accent,
+    border: `1px solid ${semanticColors.accentBorder}`,
+  },
+  neutral: {
+    background: colors.surface,
+    color: colors.textMuted,
+    border: `1px solid ${colors.border}`,
+  },
+};
+
+export function getBadgeStyle(variant = "primary", overrides = {}) {
+  return {
+    ...styles.badge,
+    ...badgeVariants[variant],
+    ...overrides,
+  };
+}
+
+export function getInteractiveCardStyle({
+  hovered = false,
+  accentColor = colors.primary,
+  padding = "20px",
+  borderRadius = radius.lg,
+  background = colors.white,
+  shadow = shadows.sm,
+  hoverShadow = shadows.md,
+  hoverTranslateY = "-2px",
+  cursor = "pointer",
+  textAlign = "left",
+  gap = "12px",
+  borderWidth = "1.5px",
+  boxSizing = "border-box",
+} = {}) {
+  return {
+    ...styles.card,
+    background,
+    border: `${borderWidth} solid ${hovered ? accentColor : colors.border}`,
+    borderRadius,
+    padding,
+    boxShadow: hovered ? hoverShadow : shadow,
+    transform: hovered ? `translateY(${hoverTranslateY})` : "none",
+    transition: "transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease",
+    cursor,
+    textAlign,
+    display: "flex",
+    flexDirection: "column",
+    gap,
+    boxSizing,
+  };
+}
+
+export function getPillButtonStyle({
+  active = false,
+  activeBackground = colors.primary,
+  activeColor = colors.white,
+  inactiveBackground = colors.surface,
+  inactiveColor = colors.text,
+  borderRadius = radius.full,
+  padding = "8px 16px",
+  fontWeight = typography.semibold,
+} = {}) {
+  return {
+    backgroundColor: active ? activeBackground : inactiveBackground,
+    color: active ? activeColor : inactiveColor,
+    border: `1.5px solid ${active ? activeBackground : colors.border}`,
+    borderRadius,
+    padding,
+    fontSize: typography.sm,
+    fontWeight,
+    cursor: "pointer",
+    fontFamily: typography.fontFamily,
+    transition: "background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease",
+  };
+}
+
+export function getBackButtonStyle({ compact = false } = {}) {
+  return {
+    display: "inline-flex",
+    alignItems: "center",
+    gap: "8px",
+    padding: compact ? "6px 10px" : "8px 12px",
+    marginBottom: "20px",
+    background: "transparent",
+    border: "none",
+    borderRadius: radius.sm,
+    cursor: "pointer",
+    fontSize: typography.sm,
+    fontWeight: typography.semibold,
+    color: colors.textMuted,
+    fontFamily: typography.fontFamily,
+    transition: "color 0.15s ease, background-color 0.15s ease",
+  };
+}
+
+export const layoutStyles = {
+  shell: {
+    minHeight: "100vh",
+    background: colors.surface,
+    fontFamily: typography.fontFamily,
+    display: "flex",
+    flexDirection: "column",
+  },
+  header: {
+    height: 60,
+    background: `linear-gradient(90deg, ${colors.dark} 0%, ${colors.primary} 100%)`,
+    display: "flex",
+    alignItems: "center",
+    padding: "0 24px",
+    justifyContent: "space-between",
+    position: "relative",
+    zIndex: 200,
+    borderBottom: "none",
+    overflow: "hidden",
+  },
+  headerBrand: {
+    display: "flex",
+    alignItems: "center",
+    gap: "14px",
+  },
+  headerLogo: {
+    height: 45,
+    objectFit: "contain",
+    cursor: "pointer",
+    userSelect: "none",
+    filter: "drop-shadow(0 2px 8px rgba(0,0,0,0.35))",
+  },
+  headerLink: {
+    color: colors.white,
+    fontSize: typography.sm,
+    textDecoration: "none",
+    fontFamily: typography.fontFamily,
+    fontWeight: typography.bold,
+    display: "flex",
+    alignItems: "center",
+    gap: "6px",
+    background: "rgba(255,255,255,0.12)",
+    border: "1px solid rgba(255,255,255,0.2)",
+    borderRadius: "999px",
+    padding: "7px 12px",
+    backdropFilter: "blur(2px)",
+  },
+  main: {
+    flex: 1,
+    padding: "36px clamp(16px, 2vw, 28px)",
+    maxWidth: 1680,
+    width: "100%",
+    boxSizing: "border-box",
+    margin: "0 auto",
+  },
+};
+
+export const pageStyles = {
+  sectionHeader: {
+    marginBottom: "28px",
+    paddingBottom: "20px",
+    borderBottom: `1px solid ${colors.border}`,
+  },
+  sectionTitle: {
+    color: colors.text,
+    fontSize: typography.xl,
+    fontWeight: typography.bold,
+    margin: "0 0 6px",
+    fontFamily: typography.fontFamily,
+    letterSpacing: "-0.2px",
+  },
+  sectionSubtitle: {
+    color: colors.textMuted,
+    fontSize: typography.base,
+    margin: 0,
+    fontFamily: typography.fontFamily,
+  },
+  emptyState: {
+    ...styles.card,
+    padding: "60px 40px",
+    textAlign: "center",
+    color: colors.textMuted,
+    fontFamily: typography.fontFamily,
+    fontSize: typography.base,
   },
 };
