@@ -6,7 +6,7 @@ Frontend SPA del Centro de Ayuda de Auco. Navegación con URLs reales, contenido
 
 - **URLs reales y deep-linking**: React Router con rutas como `/faqs`, `/videos`, `/processes/:slug`, `/documents`, `/events`
 - **Contenido validado con Zod**: Schemas tipados para FAQs, Videos, Procesos, Documentos y Eventos
-- **Test coverage**: 33 tests pasando (11 test files) + smoke tests en CI
+- **Test coverage**: 35 tests pasando (12 test files) + smoke tests en CI
 - **Arquitectura escalable**: Componentes reutilizables, tokens semánticos, selectors layer
 - **CI/CD:** GitHub Actions con smoke tests, linting y quality gates
 
@@ -172,18 +172,21 @@ npm run test:coverage     # Coverage report
 npm run test:smoke        # Solo smoke
 npm run smoke:ci           # Build + smoke (como en CI)
 
+# Quality gate liviano de CI
+npm run check:ci
+
 # Quality gate (lint + validate + build + test)
 npm run check
 ```
 
 ## 📈 Métricas Actuales
 
-- **Tests:** 33/33 pasando (100%)
-- **Test files:** 11
+- **Tests:** 35/35 pasando (100%)
+- **Test files:** 12
 - **Lint:** ✅ Sin errores
 - **Coverage:** Smoke tests + unit coverage
 - **Build size:** ~150KB (gzipped)
-- **CI time:** ~1.5min (lint + smoke + tests + coverage)
+- **CI time:** ~1.5min (lint + check:content + smoke + coverage)
 
 ## 🚀 Despliegue
 

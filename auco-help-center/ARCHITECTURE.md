@@ -47,12 +47,13 @@ Convencion para nuevos assets:
 
 - Usar nombres ASCII en kebab-case, sin tildes ni espacios.
 - Agrupar por dominio funcional (por ejemplo `public/processes/...` y `public/legal-docs/...`).
-- Mantener compatibilidad con rutas legacy existentes hasta completar una migracion planificada.
+- No introducir rutas legacy nuevas; mantener consistencia con la convención actual.
 
 ## Calidad y CI
 
 - CI corre smoke de navegacion, lint, validacion de contenido y cobertura.
 - Evitar ejecutar dos veces la misma suite de tests en CI sin necesidad.
+- En CI, usar `npm run check:ci` para lint + validacion de contenido.
 - `npm run check` se mantiene como comando local integral para PR antes de push.
 
 ## Criterios de revison
